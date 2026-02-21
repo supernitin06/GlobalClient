@@ -22,6 +22,13 @@
       #475569 78%,
       #64748b 90%,
       #94a3b8 100%);
+  --pg-nav-surface: rgba(255, 255, 255, 0.94);
+  --pg-nav-chip-bg: rgba(255, 255, 255, 0.86);
+  --pg-nav-border: rgba(148, 163, 184, 0.48);
+  --pg-nav-highlight: rgba(15, 23, 42, 0.42);
+  --pg-nav-text: #1e293b;
+  --pg-nav-text-strong: #0f172a;
+  --pg-nav-hover-bg: rgba(15, 23, 42, 0.08);
 }
 
 :root[data-theme="dark"] {
@@ -45,6 +52,13 @@
   --color-light-gray: var(--dark-950);
   --color-white: var(--dark-900);
   --color-border: var(--dark-700);
+  --pg-nav-surface: rgba(15, 17, 22, 0.92);
+  --pg-nav-chip-bg: rgba(30, 37, 48, 0.82);
+  --pg-nav-border: rgba(71, 85, 105, 0.7);
+  --pg-nav-highlight: rgba(96, 165, 250, 0.56);
+  --pg-nav-text: #dbeafe;
+  --pg-nav-text-strong: #ffffff;
+  --pg-nav-hover-bg: rgba(96, 165, 250, 0.14);
 }
 
 * {
@@ -601,6 +615,22 @@ button:hover,
 /* --- Navbar nav link hover glow --- */
 .pg-nav-link {
   position: relative;
+  color: var(--pg-nav-text);
+}
+
+.pg-nav-link-idle {
+  color: var(--pg-nav-text);
+}
+
+.pg-nav-link-idle:hover {
+  color: var(--pg-nav-text-strong);
+  background: var(--pg-nav-hover-bg);
+}
+
+.pg-nav-link-active {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #ffffff !important;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.3);
 }
 
 .pg-nav-link::after {
@@ -616,6 +646,28 @@ button:hover,
 
 .pg-nav-link:hover::after {
   opacity: 1;
+}
+
+.pg-navbar-shell {
+  border: 1px solid var(--pg-nav-border);
+  background: var(--pg-nav-surface);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.14);
+}
+
+.pg-navbar-chip {
+  border: 1px solid var(--pg-nav-border);
+  background: var(--pg-nav-chip-bg);
+}
+
+.pg-navbar-toggle {
+  border: 1px solid var(--pg-nav-border);
+  background: var(--pg-nav-chip-bg);
+  color: var(--pg-nav-text);
+}
+
+.pg-navbar-toggle:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 55%, var(--pg-nav-border));
+  color: var(--pg-nav-text-strong);
 }
 
 /* --- Hamburger lines morphing --- */

@@ -19,10 +19,9 @@ const links = [
   { label: "Contact", href: "/contact" },
 ];
 
-const baseLink = "rounded-full px-3.5 py-2 text-sm font-semibold transition";
-const activeLink =
-  "bg-[linear-gradient(135deg,var(--color-primary),var(--color-primary-dark))] text-white shadow-[0_8px_18px_rgba(15,23,42,0.25)]";
-const idleLink = "text-slate-700 hover:bg-slate-100 hover:text-slate-900";
+const baseLink = "pg-nav-link rounded-full px-3.5 py-2 text-sm font-semibold transition";
+const activeLink = "pg-nav-link-active";
+const idleLink = "pg-nav-link-idle";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -38,16 +37,16 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed inset-x-0 top-10 z-40">
+    <header className="fixed inset-x-0 top-4 z-40 lg:top-8">
       <div className="pg-container pt-2">
-        <div className="relative flex h-[74px] items-center justify-between rounded-2xl border border-slate-200/80 bg-white/95 px-3 shadow-[0_14px_34px_rgba(15,23,42,0.12)] backdrop-blur-xl lg:px-4">
-          <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(15,23,42,0.45),transparent)]" />
+        <div className="pg-navbar-shell relative flex h-[74px] items-center justify-between rounded-2xl px-3 backdrop-blur-xl lg:px-4">
+          <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,var(--pg-nav-highlight),transparent)]" />
 
-          <Link href="/" className="flex items-center">
-            <img src={logo.src} alt="Projects Global Logo" className="h-10 w-auto" />
+          <Link href="/" className="flex items-center rounded-xl px-1 py-0.5 transition hover:opacity-90">
+            <img src={logo.src} alt="Projects Global Logo" className="h-10 w-auto sm:h-11" />
           </Link>
 
-          <nav className="hidden items-center gap-1 rounded-full border border-slate-200 bg-white/75 p-1 lg:flex">
+          <nav className="pg-navbar-chip hidden items-center gap-1 rounded-full p-1 lg:flex">
             {links.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -66,7 +65,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={onToggleTheme}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:text-[var(--color-primary-dark)]"
+              className="pg-navbar-toggle inline-flex h-10 w-10 items-center justify-center rounded-full transition hover:-translate-y-0.5"
             >
               {isDark ? (
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -79,30 +78,32 @@ const Navbar = () => {
               )}
             </button>
             <Link href="/requestproposal">
-              <Button variant="primary" size="sm">Request Proposal</Button>
+              <Button variant="primary" size="sm" className="pg-btn-nav-cta">Request Proposal</Button>
             </Link>
           </div>
 
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="rounded-xl border border-slate-300 bg-white p-2.5 text-slate-700 lg:hidden"
+            className="pg-navbar-toggle rounded-xl p-2.5 lg:hidden"
           >
-            <span className="sr-only">Open menu</span>
-            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+            <span className={`pg-hamburger-lines ${open ? "open" : ""}`} aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </span>
           </button>
         </div>
       </div>
 
       {open && (
         <div className="pg-container mt-2 lg:hidden">
-          <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-[0_14px_30px_rgba(15,23,42,0.12)]">
+          <div className="pg-navbar-shell rounded-2xl p-3">
             <button
               type="button"
               onClick={onToggleTheme}
-              className="mb-3 inline-flex h-9 items-center gap-2 rounded-full border border-slate-300 bg-white px-3 text-xs font-semibold text-slate-700"
+              className="pg-navbar-toggle mb-3 inline-flex h-9 items-center gap-2 rounded-full px-3 text-xs font-semibold"
             >
               {isDark ? (
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -124,7 +125,7 @@ const Navbar = () => {
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className={`${baseLink} ${isActive ?  activeLink : idleLink}`}
+                    className={`${baseLink} pg-mobile-nav-link ${isActive ? activeLink : idleLink}`}
                   >
                     {link.label}
                   </Link>
@@ -133,7 +134,7 @@ const Navbar = () => {
             </nav>
 
             <Link href="/requestproposal" onClick={() => setOpen(false)} className="mt-3 inline-flex">
-              <Button variant="primary" size="sm">Request Proposal</Button>
+              <Button variant="primary" size="sm" className="pg-btn-nav-cta">Request Proposal</Button>
             </Link>
           </div>
         </div>
