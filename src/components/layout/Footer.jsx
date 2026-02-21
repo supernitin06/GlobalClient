@@ -40,39 +40,39 @@ const Footer = () => {
       <div className="pointer-events-none absolute -right-28 bottom-8 h-72 w-72 rounded-full bg-[rgba(13,110,253,0.08)] blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10">
-        <div className="rounded-[1.8rem] border border-[rgba(13,110,253,0.24)] bg-[linear-gradient(120deg,rgba(13,110,253,0.1),rgba(255,193,7,0.13))] p-7 shadow-[0_18px_38px_rgba(15,23,42,0.1)] md:p-8">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+        <div className="rounded-[1.6rem] border border-[rgba(13,110,253,0.24)] bg-[linear-gradient(120deg,rgba(13,110,253,0.1),rgba(255,193,7,0.13))] p-6 shadow-[0_18px_38px_rgba(15,23,42,0.1)] md:p-7">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--color-primary-dark)]">Final Support CTA</p>
-              <h3 className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">Need Fast Outsourcing Deployment?</h3>
-              <p className="mt-2 max-w-2xl text-base text-slate-700">Share your requirement and our team will connect within 24-48 business hours.</p>
+              <h3 className="mt-2 text-2xl font-bold leading-tight sm:text-3xl">Need Fast Outsourcing Deployment?</h3>
+              <p className="mt-2 max-w-xl text-sm text-slate-700 sm:text-base">Share your requirement and our team will connect within 24-48 business hours.</p>
             </div>
-            <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            <div className="flex flex-wrap items-center gap-2.5">
               <span className="rounded-full border border-slate-200 bg-white/90 px-3 py-1.5 text-xs font-semibold text-slate-700">24-48 Business Hours</span>
               <span className="rounded-full border border-slate-200 bg-white/90 px-3 py-1.5 text-xs font-semibold text-slate-700">SLA-Focused Consultation</span>
               <Link href="/requestproposal" className="inline-flex">
-                <Button variant="primary" size="lg">Request Proposal</Button>
+                <Button variant="primary" size="md">Request Proposal</Button>
               </Link>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-6 py-10 lg:grid-cols-12">
-        <article className="rounded-3xl border border-slate-200 bg-white/95 p-7 shadow-[0_14px_30px_rgba(15,23,42,0.08)] lg:col-span-4">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-5 py-10 lg:grid-cols-12">
+        <article className="pg-footer-card rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-[0_14px_30px_rgba(15,23,42,0.08)] lg:col-span-4">
           <div className="flex items-start gap-4">
             <img src={logo.src} alt="Projects Global Logo" className="h-12 w-auto" />
             <div>
-              <h3 className="text-2xl font-bold">Projects Global</h3>
-              <p className="text-sm font-medium text-slate-600">Global Outsourcing Excellence</p>
+              <h3 className="text-xl font-bold">Projects Global</h3>
+              <p className="text-xs font-medium uppercase tracking-wide text-slate-600">Global Outsourcing Excellence</p>
             </div>
           </div>
-          <p className="mt-5 text-[15px] leading-7 text-slate-700">India Headquarters | Global Delivery Network</p>
-          <p className="mt-2 text-[15px] text-slate-700">Phone: +91 [Insert Number]</p>
-          <p className="text-[15px] text-slate-700">Email: info@projectsglobal.in</p>
-          <p className="text-[15px] text-slate-700">Business Hours: Monday - Saturday | 10:00 AM - 7:00 PM (IST)</p>
+          <p className="mt-4 text-sm leading-6 text-slate-700">India Headquarters | Global Delivery Network</p>
+          <p className="mt-1.5 text-sm text-slate-700">Phone: +91 [Insert Number]</p>
+          <p className="text-sm text-slate-700">Email: info@projectsglobal.in</p>
+          <p className="text-sm text-slate-700">Business Hours: Monday - Saturday | 10:00 AM - 7:00 PM (IST)</p>
 
-          <div className="mt-5 flex gap-2.5">
+          <div className="mt-4 flex gap-2.5">
             {["in", "f", "ig"].map((item) => (
               <span key={item} className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-xs font-bold text-slate-600">
                 {item.toUpperCase()}
@@ -81,9 +81,9 @@ const Footer = () => {
           </div>
         </article>
 
-        <article className="rounded-3xl border border-slate-200 bg-white/95 p-7 shadow-[0_14px_30px_rgba(15,23,42,0.08)] lg:col-span-3">
-          <h4 className="text-2xl font-bold">Services</h4>
-          <ul className="mt-5 space-y-2.5 text-[15px] text-slate-700">
+        <article className="pg-footer-card rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-[0_14px_30px_rgba(15,23,42,0.08)] lg:col-span-3">
+          <h4 className="text-xl font-bold">Services</h4>
+          <ul className="pg-footer-list mt-4 space-y-2 text-sm text-slate-700">
             {services.map((item) => (
               <li key={item} className="flex items-start gap-2.5">
                 <span className="mt-1.5 h-2 w-2 rounded-full bg-[var(--color-primary)]" />
@@ -93,9 +93,9 @@ const Footer = () => {
           </ul>
         </article>
 
-        <article className="rounded-3xl border border-slate-200 bg-white/95 p-7 shadow-[0_14px_30px_rgba(15,23,42,0.08)] lg:col-span-2">
-          <h4 className="text-2xl font-bold">Quick Links</h4>
-          <ul className="mt-5 space-y-2.5 text-[15px] text-slate-700">
+        <article className="pg-footer-card rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-[0_14px_30px_rgba(15,23,42,0.08)] lg:col-span-2">
+          <h4 className="text-xl font-bold">Quick Links</h4>
+          <ul className="pg-footer-list mt-4 space-y-2 text-sm text-slate-700">
             {quickLinks.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="inline-flex items-center gap-2 transition hover:translate-x-0.5 hover:text-[var(--color-primary)]">
@@ -107,16 +107,16 @@ const Footer = () => {
           </ul>
         </article>
 
-        <article className="rounded-3xl border border-[rgba(13,110,253,0.24)] bg-[linear-gradient(160deg,rgba(255,255,255,0.95),rgba(231,241,255,0.68))] p-7 shadow-[0_14px_30px_rgba(15,23,42,0.08)] lg:col-span-3">
-          <h4 className="text-2xl font-bold">Newsletter</h4>
-          <p className="mt-3 text-[15px] text-slate-700">Get outsourcing updates and campaign opportunities.</p>
-          <form className="mt-4 space-y-3">
+        <article className="pg-footer-card rounded-3xl border border-[rgba(13,110,253,0.24)] bg-[linear-gradient(160deg,rgba(255,255,255,0.95),rgba(231,241,255,0.68))] p-6 shadow-[0_14px_30px_rgba(15,23,42,0.08)] lg:col-span-3">
+          <h4 className="text-xl font-bold">Newsletter</h4>
+          <p className="mt-2 text-sm text-slate-700">Get outsourcing updates and campaign opportunities.</p>
+          <form className="mt-3 space-y-2.5">
             <input
               type="email"
               placeholder="Your business email"
-              className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-[var(--color-primary)]"
+              className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-[var(--color-primary)]"
             />
-            <Button type="button" variant="primary" size="md" className="w-full">Subscribe</Button>
+            <Button type="button" variant="primary" size="sm" className="w-full">Subscribe</Button>
           </form>
           <p className="mt-3 text-xs text-slate-500">Business email only. No spam communication.</p>
         </article>
