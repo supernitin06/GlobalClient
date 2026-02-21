@@ -1,0 +1,5 @@
+{
+    "name": "Global Client Project",
+    "version": "1.0.0",
+    "description": "Next.js project with Redux and Context setup"
+}
