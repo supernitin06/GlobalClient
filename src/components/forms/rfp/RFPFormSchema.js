@@ -1,0 +1,105 @@
+export const rfpFormSchema = {
+    companyName: {
+        label: 'Company Name',
+        type: 'text',
+        required: true,
+        placeholder: 'Your company name',
+    },
+    contactName: {
+        label: 'Contact Person',
+        type: 'text',
+        required: true,
+        placeholder: 'Your full name',
+    },
+    email: {
+        label: 'Email Address',
+        type: 'email',
+        required: true,
+        placeholder: 'you@company.com',
+    },
+    phone: {
+        label: 'Phone Number',
+        type: 'tel',
+        required: true,
+        placeholder: '+1 (555) 000-0000',
+    },
+    serviceType: {
+        label: 'Service Type',
+        type: 'select',
+        required: true,
+        options: [
+            { value: 'digital_marketing', label: 'Digital Marketing' },
+            { value: 'web_development', label: 'Web Development' },
+            { value: 'mobile_app', label: 'Mobile App Development' },
+            { value: 'cloud_solutions', label: 'Cloud Solutions' },
+            { value: 'consulting', label: 'Consulting' },
+            { value: 'other', label: 'Other' },
+        ],
+    },
+    projectBudget: {
+        label: 'Project Budget',
+        type: 'select',
+        required: true,
+        options: [
+            { value: 'under_5k', label: 'Under $5,000' },
+            { value: '5k_10k', label: '$5,000 - $10,000' },
+            { value: '10k_25k', label: '$10,000 - $25,000' },
+            { value: '25k_50k', label: '$25,000 - $50,000' },
+            { value: '50k_plus', label: '$50,000+' },
+        ],
+    },
+    projectTimeline: {
+        label: 'Timeline',
+        type: 'select',
+        required: true,
+        options: [
+            { value: 'asap', label: 'ASAP' },
+            { value: '1_month', label: 'Within 1 Month' },
+            { value: '1_3_months', label: '1-3 Months' },
+            { value: '3_6_months', label: '3-6 Months' },
+            { value: 'flexible', label: 'Flexible' },
+        ],
+    },
+    projectDescription: {
+        label: 'Project Description',
+        type: 'textarea',
+        required: true,
+        placeholder: 'Describe your project in detail...',
+        rows: 4,
+    },
+    goals: {
+        label: 'Goals & Objectives',
+        type: 'textarea',
+        required: false,
+        placeholder: 'What do you want to achieve with this project?',
+        rows: 3,
+    },
+    targetAudience: {
+        label: 'Target Audience',
+        type: 'textarea',
+        required: false,
+        placeholder: 'Who is your target audience?',
+        rows: 3,
+    },
+    competitors: {
+        label: 'Competitors',
+        type: 'textarea',
+        required: false,
+        placeholder: 'Who are your main competitors?',
+        rows: 3,
+    },
+    additionalInfo: {
+        label: 'Additional Information',
+        type: 'textarea',
+        required: false,
+        placeholder: 'Any other details you\'d like to share...',
+        rows: 3,
+    },
+    agreedToTerms: {
+        label: 'Terms & Conditions',
+        type: 'checkbox',
+        required: true,
+    },
+};
+
+export default rfpFormSchema;

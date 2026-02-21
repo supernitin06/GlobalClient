@@ -1,39 +1,42 @@
-import WelcomeComponent from "@/components/WelcomeComponent";
+import React from "react";
+import HomeHeroSection from "@/components/home/HomeHeroSection";
+import HomeAboutServicesSection from "@/components/home/HomeAboutServicesSection";
+import HomeWhyChooseSection from "@/components/home/HomeWhyChooseSection";
+import HomeIndustriesProcessSection from "@/components/home/HomeIndustriesProcessSection";
+import HomeCampaignsSection from "@/components/home/HomeCampaignsSection";
+import HomePartnerCtaSection from "@/components/home/HomePartnerCtaSection";
+import HomeStatsSection from "@/components/home/HomeStatsSection";
+import HomeComplianceSection from "@/components/home/HomeComplianceSection";
+import HomeFaqSection from "@/components/home/HomeFaqSection";
+import {
+  campaigns,
+  compliancePoints,
+  faqItems,
+  impactStats,
+  industries,
+  processSteps,
+  services,
+  supportChannels,
+  trustHighlights,
+  whyChooseUs,
+} from "@/components/home/homeData";
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-bold">src/app/page.js</code>
-        </p>
-      </div>
-
-      <div className="relative flex place-items-center">
-        <WelcomeComponent />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        {/* Other links omitted for brevity */}
-      </div>
-    </main>
+    <div className="relative overflow-hidden pb-0">
+      <div className="pointer-events-none absolute -left-24 top-32 h-72 w-72 rounded-full bg-[rgba(15,23,42,0.11)] blur-3xl" />
+      <div className="pointer-events-none absolute -right-28 top-[42rem] h-80 w-80 rounded-full bg-[rgba(255,193,7,0.12)] blur-3xl" />
+      <HomeHeroSection supportChannels={supportChannels} trustHighlights={trustHighlights} />
+      <HomeStatsSection stats={impactStats} />
+      <HomeAboutServicesSection services={services} />
+      <HomeWhyChooseSection whyChooseUs={whyChooseUs} />
+      <HomeIndustriesProcessSection industries={industries} processSteps={processSteps} />
+      <HomeCampaignsSection campaigns={campaigns} />
+      <HomeComplianceSection compliancePoints={compliancePoints} />
+      <HomeFaqSection faqItems={faqItems} />
+      <HomePartnerCtaSection />
+    </div>
   );
-}
+};
+
+export default Home;

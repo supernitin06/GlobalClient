@@ -6,9 +6,13 @@ const AppContext = createContext();
 
 export function AppWrapper({ children }) {
     const [state, setState] = useState({
-        theme: 'dark',
+        theme: 'light',
         user: null,
     });
+
+    React.useEffect(() => {
+        document.documentElement.setAttribute('data-theme', state.theme);
+    }, [state.theme]);
 
     return (
         <AppContext.Provider value={{ state, setState }}>
