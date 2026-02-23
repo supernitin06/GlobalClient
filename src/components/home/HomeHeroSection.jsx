@@ -157,28 +157,23 @@ const HomeHeroSection = ({
                     className="pg-hero-channel rounded-full border border-white/30 bg-white/12 px-3 py-1.5 text-xs font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:border-white/50"
                     style={{ "--channel-index": index }}
                   >
-                    <span className="h-1 w-1 rounded-full bg-[var(--color-primary)]" />
-                    {tag}
+                    {channel}
                   </span>
                 ))}
               </div>
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link href="/requestproposal">
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    iconRight={
-                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    }
-                  >
+                  <Button variant="primary" size="lg" className="rounded-xl border border-[#0f172a] shadow-[0_14px_26px_rgba(15,23,42,0.32)]">
                     Request a Proposal
                   </Button>
                 </Link>
                 <Link href="/contact">
-                  <Button variant="secondary" size="lg">
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    className="rounded-xl border border-[rgba(255,193,7,0.65)] shadow-[0_10px_22px_rgba(255,193,7,0.24)]"
+                  >
                     Schedule a Consultation
                   </Button>
                 </Link>
