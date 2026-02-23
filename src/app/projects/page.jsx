@@ -12,7 +12,10 @@ const Projects = () => {
     return (
         <div className="mx-auto max-w-7xl px-4 pt-2 pb-6 sm:px-6 lg:px-8">
             <ProjectsHeroSection />
-            <ProjectsFeaturedTopSection opportunities={liveProjectOpportunities} />
+            <ProjectsFeaturedTopSection
+                opportunities={liveProjectOpportunities}
+                featuredLimit={liveProjectOpportunities.length}
+            />
             <ProjectsOpportunitiesSection opportunities={liveProjectOpportunities} />
             <ProjectsUpcomingSection projects={upcomingProjects} />
             <ProjectsTwoColumnSection campaignTypes={campaignTypes} executionFramework={executionFramework} />
