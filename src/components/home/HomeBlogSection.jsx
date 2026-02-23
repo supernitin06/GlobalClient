@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -11,35 +11,32 @@ import { FaArrowRight, FaCalendarAlt, FaUser, FaGlobe } from "react-icons/fa";
 import Button from "@/components/ui/Button";
 import logo from "../../assets/image/logo/yello.png";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 const HomeBlogSection = ({ blogs }) => {
     const sectionRef = useRef(null);
 
-    useGSAP(() => {
-        gsap.from(".pg-blog-header", {
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: ".pg-blog-header",
-                start: "top 85%",
-            }
-        });
+    useEffect(() => {
+        if (!sectionRef.current) return undefined;
 
-        gsap.from(".swiper", {
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            delay: 0.2,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: ".swiper",
-                start: "top 85%",
-            }
-        });
-    }, { scope: sectionRef });
+        const ctx = gsap.context(() => {
+            gsap.from(".pg-blog-header", {
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power3.out",
+            });
+
+            gsap.from(".swiper", {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                delay: 0.2,
+                ease: "power3.out",
+            });
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
 
     return (
         <section ref={sectionRef} className="relative overflow-hidden mt-6 md:mt-8 lg:mt-10 py-8 md:py-12 lg:py-16 bg-slate-50/50">
