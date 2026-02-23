@@ -36,16 +36,23 @@ const HomeIndustriesProcessSection = ({ industries, processSteps }) => {
                 )}
               </div>
 
-              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-                {industries.map((item, index) => (
+              <div className="grid gap-2">
+                {industries.map((item) => (
                   <div
                     key={item}
-                    className="flex items-center gap-2 rounded-lg border border-[rgba(15,23,42,0.2)] bg-[var(--color-primary-light)]/55 px-3 py-2 text-xs font-semibold text-[var(--color-primary-dark)]"
+                    className="group flex items-center justify-between rounded-lg border border-[rgba(15,23,42,0.18)] bg-[var(--color-primary-light)]/55 px-3 py-2.5 text-sm font-semibold text-[var(--color-primary-dark)] transition hover:-translate-y-0.5 hover:border-[rgba(15,23,42,0.34)] hover:bg-white"
                   >
-                    <span className="inline-flex h-4 min-w-[1rem] items-center justify-center rounded-full bg-white text-[9px] font-bold text-[var(--color-primary-dark)]">
-                      {index + 1}
+                    <span className="inline-flex items-center gap-2">
+                      <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-primary)] text-white shadow-[0_6px_14px_rgba(15,23,42,0.22)]">
+                        <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="m9 6 6 6-6 6" />
+                        </svg>
+                      </span>
+                      <span>{item}</span>
                     </span>
-                    <span>{item}</span>
+                    <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-400 transition group-hover:text-[var(--color-primary)]">
+                      Sector
+                    </span>
                   </div>
                 ))}
               </div>

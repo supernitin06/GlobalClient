@@ -41,7 +41,7 @@ const Button = ({
   // Variant styles — rich & unique
   const variantClasses = {
     primary:
-      "pg-btn-effect bg-[linear-gradient(135deg,var(--color-primary)_0%,#0f172a_100%)] text-white shadow-[0_6px_22px_rgba(15,23,42,0.32)] hover:shadow-[0_10px_28px_rgba(15,23,42,0.44)] focus-visible:ring-[var(--color-primary)] hover:brightness-110 active:scale-[0.97]",
+      "pg-btn-effect pg-btn-primary-theme bg-[linear-gradient(135deg,var(--color-primary)_0%,#0f172a_100%)] !text-white shadow-[0_6px_22px_rgba(15,23,42,0.32)] hover:shadow-[0_10px_28px_rgba(15,23,42,0.44)] focus-visible:ring-[var(--color-primary)] hover:brightness-110 active:scale-[0.97]",
     secondary:
       "pg-btn-effect bg-[linear-gradient(135deg,#FFC107_0%,#f59e0b_100%)] text-slate-900 shadow-[0_6px_20px_rgba(255,193,7,0.38)] hover:shadow-[0_10px_26px_rgba(255,193,7,0.52)] focus-visible:ring-amber-400 hover:brightness-105 active:scale-[0.97]",
     success:
@@ -80,13 +80,14 @@ const Button = ({
     className: combinedClasses,
     onClick: handleClick,
     ref: btnRef,
+    ...(Component === "button"
+      ? {
+          type,
+          disabled: disabled || loading,
+        }
+      : {}),
     ...rest,
   };
-
-  if (Component === "button") {
-    componentProps.type = type;
-    componentProps.disabled = disabled || loading;
-  }
 
   return (
     <Component {...componentProps}>

@@ -7,15 +7,24 @@ import Button from "../ui/Button";
 
 import partnerImage from "../../assets/image/call-center-2944063_1920.jpg";
 
+const ctaHighlights = [
+  "Dedicated onboarding within 48 hours",
+  "SLA-driven delivery with transparent reporting",
+  "Scalable teams for voice and non-voice campaigns",
+];
+
+const ctaStats = [
+  { value: "24/7", label: "Support Window" },
+  { value: "98%", label: "SLA Adherence" },
+  { value: "40+", label: "Active Programs" },
+];
+
 const HomePartnerCtaSection = () => {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-6 grid items-stretch gap-6 lg:grid-cols-2">
-
-      {/* LEFT — partner card with image */}
-      <ScrollReveal variant="left">
-        <article className="group flex min-h-[380px] flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_40px_rgba(15,23,42,0.08)] transition-all duration-300 hover:shadow-[0_28px_52px_rgba(15,23,42,0.14)]">
-          {/* Image area */}
-          <div className="relative h-52 overflow-hidden border-b border-slate-200">
+      <ScrollReveal variant="up" className="h-full">
+        <article className="flex h-full min-h-[460px] flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_30px_rgba(15,23,42,0.08)]">
+          <div className="relative h-44 border-b border-slate-200 bg-slate-100 flex items-center justify-center">
             {partnerImage ? (
               <img
                 src={partnerImage.src}
@@ -69,13 +78,10 @@ const HomePartnerCtaSection = () => {
         </article>
       </ScrollReveal>
 
-      {/* RIGHT — dark gradient CTA */}
-      <ScrollReveal variant="right" delay={120}>
-        <article className="relative flex min-h-[380px] flex-col justify-between overflow-hidden rounded-3xl border border-[rgba(15,23,42,0.22)] bg-[linear-gradient(145deg,#0f172a_0%,#1e293b_55%,#0f172a_100%)] p-8 shadow-[0_20px_40px_rgba(15,23,42,0.24)] text-white">
-          {/* Background radial glows */}
-          <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[rgba(30,61,133,0.35)] blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-16 left-10 h-48 w-48 rounded-full bg-[rgba(255,193,7,0.18)] blur-3xl" />
-          <div className="pointer-events-none absolute inset-0 pg-soft-grid opacity-[0.08]" />
+      <ScrollReveal variant="zoom" delay={120} className="h-full">
+        <article className="relative flex h-full min-h-[460px] flex-col overflow-hidden rounded-3xl border border-[rgba(13,110,253,0.26)] bg-[linear-gradient(145deg,rgba(13,110,253,0.1),rgba(255,193,7,0.14))] p-7 shadow-[0_16px_30px_rgba(15,23,42,0.1)]">
+          <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[rgba(13,110,253,0.12)] blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-12 left-16 h-40 w-40 rounded-full bg-[rgba(255,193,7,0.18)] blur-3xl" />
 
           {/* Content */}
           <div className="relative">
@@ -104,7 +110,27 @@ const HomePartnerCtaSection = () => {
             </div>
           </div>
 
-          <div className="relative mt-8 flex flex-wrap gap-3">
+          <div className="relative mt-5 grid gap-3 sm:grid-cols-3">
+            {ctaStats.map((item) => (
+              <div key={item.label} className="rounded-xl border border-[rgba(15,23,42,0.16)] bg-white/70 px-3 py-3 backdrop-blur-sm">
+                <p className="text-lg font-extrabold text-[var(--color-primary)]">{item.value}</p>
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">{item.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="relative mt-4 rounded-2xl border border-[rgba(15,23,42,0.16)] bg-white/55 p-4 backdrop-blur-sm">
+            <div className="grid gap-2">
+              {ctaHighlights.map((item) => (
+                <p key={item} className="flex items-start gap-2 text-sm text-slate-700">
+                  <span className="mt-1 inline-flex h-2 w-2 rounded-full bg-[var(--color-primary)]" />
+                  <span>{item}</span>
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative mt-auto pt-6 flex flex-wrap gap-3">
             <Link href="/requestproposal">
               <Button variant="secondary" size="md" iconRight={
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>

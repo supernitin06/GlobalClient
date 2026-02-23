@@ -1,11 +1,14 @@
 'use client';
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Button from "@/components/ui/Button";
 
 import heroImage1 from "../../assets/image/call-center-3614379_1920.jpg";
+import heroImage2 from "../../assets/image/customer-service-concept-illustration.webp";
+import heroImage3 from "../../assets/image/top-view-messy-office-workspace-with-tablet.jpg";
+import heroImage4 from "../../assets/image/day-office-travel-agency.jpg";
 
 const defaultChannels = [
   "Inbound Support",
@@ -16,56 +19,143 @@ const defaultChannels = [
   "Back Office Operations",
 ];
 
-const defaultHighlights = [
-  { icon: "✓", text: "Verified Outsourcing Centers" },
-  { icon: "✓", text: "24/7 Support Capability" },
-  { icon: "✓", text: "SLA-Based Reporting & Monitoring" },
-  { icon: "✓", text: "Rapid Go-Live & Deployment Support" },
+const heroHeadingWords = [
+  "Global",
+  "Outsourcing",
+  "Solutions",
+  "for",
+  "Customer",
+  "Support",
+  "&",
+  "Sales",
+];
+
+const heroTaglineChunks = [
+  "Scale your business with reliable call center outsourcing,",
+  "trained agents,",
+  "and SLA-driven performance.",
+];
+
+const heroSlides = [
+  {
+    image: heroImage1,
+    tag: "Global Delivery",
+  },
+  {
+    image: heroImage2,
+    tag: "Customer Experience",
+  },
+  {
+    image: heroImage3,
+    tag: "Data-Led Operations",
+  },
+  {
+    image: heroImage4,
+    tag: "Scale & Performance",
+  },
 ];
 
 const HomeHeroSection = ({
   supportChannels = defaultChannels,
-  trustHighlights = defaultHighlights,
 }) => {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isHeroPop, setIsHeroPop] = useState(false);
+  const heroPopTimerRef = useRef(null);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5200);
+
+    return () => {
+      clearInterval(timer);
+      if (heroPopTimerRef.current) {
+        window.clearTimeout(heroPopTimerRef.current);
+      }
+    };
+  }, []);
+
+  const onHeroPop = () => {
+    setIsHeroPop(true);
+    if (heroPopTimerRef.current) {
+      window.clearTimeout(heroPopTimerRef.current);
+    }
+    heroPopTimerRef.current = window.setTimeout(() => setIsHeroPop(false), 520);
+  };
+
   return (
-    <section className="relative overflow-hidden border-b border-slate-200 bg-white">
-      {/* Background atmosphere */}
-      <div className="absolute inset-0 bg-[linear-gradient(118deg,rgba(15,23,42,0.06)_0%,transparent_38%,rgba(255,193,7,0.07)_100%)]" />
-      <div className="absolute inset-0 pg-soft-grid opacity-[0.35]" />
-      <div className="absolute -left-32 top-16 h-96 w-96 rounded-full bg-[rgba(30,61,133,0.14)] blur-[80px]" />
-      <div className="absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-[rgba(255,193,7,0.18)] blur-[70px]" />
-      <div className="absolute right-1/4 top-0 h-64 w-64 rounded-full bg-[rgba(15,23,42,0.06)] blur-[60px]" />
+    <section
+      className={`pg-hero-premium relative overflow-hidden border-b border-slate-200 bg-white py-6 md:py-7 lg:py-7 ${isHeroPop ? "is-3d-pop" : ""}`}
+      onClick={onHeroPop}
+    >
+      <div className="pg-hero-bg-track absolute inset-0">
+        {heroSlides.map((slide, index) => (
+          <div
+            key={slide.tag}
+            className={`pg-hero-bg-slide ${activeSlide === index ? "is-active" : ""}`}
+          >
+            <img
+              src={slide.image.src}
+              alt={slide.tag}
+              loading={index === 0 ? "eager" : "lazy"}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
+      <div className="absolute inset-0 bg-[linear-gradient(95deg,rgba(2,6,23,0.76)_0%,rgba(2,6,23,0.64)_40%,rgba(2,6,23,0.46)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_35%,rgba(59,130,246,0.34),transparent_44%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_72%,rgba(250,204,21,0.22),transparent_36%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(112deg,rgba(15,23,42,0.11),transparent_32%,rgba(255,193,7,0.1))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_8%,rgba(15,23,42,0.12),transparent_32%)]" />
+      <div className="absolute -left-24 top-14 h-72 w-72 rounded-full bg-[rgba(15,23,42,0.2)] blur-3xl" />
+      <div className="absolute -right-24 bottom-4 h-80 w-80 rounded-full bg-[rgba(255,193,7,0.16)] blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 md:py-18 lg:py-16">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-
-          {/* LEFT — copy */}
+      <div className="pg-hero-content-wrap relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-5 lg:grid-cols-1">
           <ScrollReveal variant="left">
-            <div>
-              {/* Eyebrow badge */}
-              <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(30,61,133,0.28)] bg-[rgba(30,61,133,0.07)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary)]">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--color-primary)]" />
+            <div className="max-w-4xl">
+              <p className="pg-hero-kicker inline-flex items-center rounded-full border border-white/35 bg-white/14 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.1em] text-white">
                 Trusted Outsourcing Partner
-              </div>
-
-              {/* Headline */}
-              <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.4rem]">
-                <span className="block">Global Outsourcing</span>
-                <span className="block bg-[linear-gradient(130deg,#1e3d85_0%,#0f172a_50%,#334155_100%)] bg-clip-text text-transparent">
-                  Solutions for Growth
-                </span>
-              </h1>
-
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
-                Scale your business with reliable call center outsourcing, trained agents, and SLA-driven performance across every channel.
               </p>
 
-              {/* Feature pills */}
-              <div className="mt-5 flex flex-wrap gap-2">
-                {["SLA-Driven Delivery", "Verified Partner Centers", "Rapid Go-Live"].map((tag) => (
+              <h1 className="pg-hero-heading mt-4 max-w-3xl text-3xl font-extrabold leading-[1.04] sm:text-[2.65rem] lg:text-[3.1rem]">
+                {heroHeadingWords.map((word, index) => (
                   <span
-                    key={tag}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 shadow-sm"
+                    key={`${word}-${index}`}
+                    className="pg-hero-word"
+                    style={{ "--word-index": index }}
+                  >
+                    {word}
+                  </span>
+                ))}
+              </h1>
+
+              <p className="mt-3.5 max-w-2xl text-base leading-relaxed text-slate-100 sm:text-[1.05rem]">
+                {heroTaglineChunks.map((chunk, index) => (
+                  <span
+                    key={chunk}
+                    className="pg-hero-subline"
+                    style={{ "--subline-index": index }}
+                  >
+                    {chunk}
+                  </span>
+                ))}
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                <span className="pg-hero-chip rounded-full border border-white/35 bg-white/14 px-3.5 py-1.5 text-xs font-semibold text-white" style={{ "--chip-index": 0 }}>SLA-Driven Delivery</span>
+                <span className="pg-hero-chip rounded-full border border-white/35 bg-white/14 px-3.5 py-1.5 text-xs font-semibold text-white" style={{ "--chip-index": 1 }}>Verified Partner Centers</span>
+                <span className="pg-hero-chip rounded-full border border-white/35 bg-white/14 px-3.5 py-1.5 text-xs font-semibold text-white" style={{ "--chip-index": 2 }}>Rapid Go-Live Support</span>
+              </div>
+
+              <p className="mt-4 text-sm font-semibold text-white">Support Channels:</p>
+              <div className="mt-2.5 flex flex-wrap gap-1.5">
+                {supportChannels.map((channel, index) => (
+                  <span
+                    key={channel}
+                    className="pg-hero-channel rounded-full border border-white/30 bg-white/12 px-3 py-1.5 text-xs font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:border-white/50"
+                    style={{ "--channel-index": index }}
                   >
                     <span className="h-1 w-1 rounded-full bg-[var(--color-primary)]" />
                     {tag}
@@ -73,23 +163,7 @@ const HomeHeroSection = ({
                 ))}
               </div>
 
-              {/* Support channels */}
-              <div className="mt-7">
-                <p className="mb-2.5 text-xs font-bold uppercase tracking-widest text-slate-400">Support Channels</p>
-                <div className="flex flex-wrap gap-2">
-                  {supportChannels.map((channel) => (
-                    <span
-                      key={channel}
-                      className="group relative overflow-hidden rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-medium text-slate-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:shadow-md"
-                    >
-                      {channel}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* CTA buttons */}
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-3">
                 <Link href="/requestproposal">
                   <Button
                     variant="primary"
@@ -110,67 +184,16 @@ const HomeHeroSection = ({
                 </Link>
               </div>
 
-              {/* Social proof row */}
-              <div className="mt-8 flex items-center gap-4 border-t border-slate-100 pt-6">
-                <div className="flex -space-x-2">
-                  {["#1e3d85", "#334155", "#0f172a", "#475569"].map((c, i) => (
-                    <span
-                      key={i}
-                      className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white text-[10px] font-bold text-white shadow"
-                      style={{ background: c }}
-                    >
-                      {["AC", "BD", "CE", "DF"][i]}
-                    </span>
-                  ))}
-                </div>
-                <p className="text-xs text-slate-500">
-                  <span className="font-bold text-slate-800">500+</span> businesses trust Projects Global
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* RIGHT — image card */}
-          <ScrollReveal variant="zoom" delay={100}>
-            <div className="relative">
-              {/* Floating decorative ring */}
-              <div className="absolute -inset-3 rounded-[2rem] border border-[rgba(30,61,133,0.12)] bg-[rgba(30,61,133,0.04)]" />
-
-              <div className="relative overflow-hidden rounded-[1.6rem] border border-slate-200 bg-white p-2.5 shadow-[0_28px_58px_rgba(15,23,42,0.16)]">
-                {heroImage1 ? (
-                  <img
-                    src={heroImage1.src}
-                    alt="Customer support team"
-                    loading="eager"
-                    className="h-[360px] w-full rounded-2xl object-cover lg:h-[470px] hero-float"
+              <div className="mt-4 flex items-center gap-2.5">
+                {heroSlides.map((slide, index) => (
+                  <button
+                    key={slide.tag}
+                    type="button"
+                    aria-label={`Show ${slide.tag} slide`}
+                    onClick={() => setActiveSlide(index)}
+                    className={`pg-hero-dot ${activeSlide === index ? "is-active" : ""}`}
                   />
-                ) : (
-                  <div className="flex h-[360px] items-center justify-center rounded-2xl bg-slate-100 text-slate-400 lg:h-[470px]">
-                    Hero Image Placeholder
-                  </div>
-                )}
-
-                {/* Overlay trust card */}
-                <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/60 bg-white/96 p-4 shadow-[0_8px_24px_rgba(15,23,42,0.12)] backdrop-blur-lg">
-                  <div className="flex items-center justify-between">
-                    <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary)]">Trusted Performance</p>
-                    <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">● LIVE</span>
-                  </div>
-                  <div className="mt-3 grid grid-cols-2 gap-2">
-                    {trustHighlights.map((item) => (
-                      <p key={typeof item === "string" ? item : item.text} className="flex items-center gap-1.5 text-xs font-medium text-slate-700">
-                        <span className="text-emerald-500 font-bold">{typeof item === "object" ? item.icon : "✓"}</span>
-                        {typeof item === "object" ? item.text : item}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating badge */}
-              <div className="pg-badge-pulse absolute -right-4 top-8 flex flex-col items-center rounded-2xl border border-[rgba(30,61,133,0.22)] bg-white px-4 py-3 shadow-[0_8px_20px_rgba(15,23,42,0.14)]">
-                <p className="text-2xl font-extrabold text-[var(--color-primary)]">98%</p>
-                <p className="mt-0.5 text-[10px] font-semibold text-slate-500">Client Satisfaction</p>
+                ))}
               </div>
             </div>
           </ScrollReveal>
