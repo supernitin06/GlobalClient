@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
-import aboutImage from "../../assets/image/call-center-2944063_1920.jpg";
+import aboutImage from "../../assets/image/GP-43.jpg";
 
 const AboutStory = () => {
   return (
@@ -11,9 +12,11 @@ const AboutStory = () => {
           <ScrollReveal variant="left">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-100 aspect-[4/3] group">
               {aboutImage ? (
-                <img
-                  src={aboutImage.src}
+                <Image
+                  src={aboutImage}
                   alt="Our Story"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               ) : (

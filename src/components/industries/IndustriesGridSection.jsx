@@ -1,4 +1,5 @@
-﻿import React from "react";
+import React from "react";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
 
 const IndustriesGridSection = ({ industries }) => {
@@ -27,11 +28,11 @@ const IndustriesGridSection = ({ industries }) => {
                         : "h-32"
                     }`}
                   >
-                    <img
-                      src={item.image.src}
+                    <Image
+                      src={item.image}
                       alt={item.title}
-                      loading="lazy"
-                      decoding="async"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />

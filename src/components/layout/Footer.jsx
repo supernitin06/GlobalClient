@@ -170,16 +170,19 @@ function NewsletterBanner() {
         }}
       />
 
-      {/* Yellow glow orb left */}
-      <div
-        className="pointer-events-none absolute -top-24 -left-24 w-80 h-80 rounded-full opacity-20"
-        style={{ background: "radial-gradient(circle, #FFC107 0%, transparent 70%)" }}
-      />
-      {/* Blue glow orb right */}
-      <div
-        className="pointer-events-none absolute -bottom-24 -right-12 w-72 h-72 rounded-full opacity-15"
-        style={{ background: "radial-gradient(circle, #60a5fa 0%, transparent 70%)" }}
-      />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-5 py-10 lg:grid-cols-12">
+        <article className="pg-footer-card rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-[0_14px_30px_rgba(15,23,42,0.08)] lg:col-span-4">
+          <div className="flex items-start gap-4">
+            <Image src={logo} alt="Projects Global Logo" width={200} height={48} className="h-12 w-auto" />
+            <div>
+              <h3 className="text-xl font-bold">Projects Global</h3>
+              <p className="text-xs font-medium uppercase tracking-wide text-slate-600">Global Outsourcing Excellence</p>
+            </div>
+          </div>
+          <p className="mt-4 text-sm leading-6 text-slate-700">India Headquarters | Global Delivery Network</p>
+          <p className="mt-1.5 text-sm text-slate-700">Phone: +91 [Insert Number]</p>
+          <p className="text-sm text-slate-700">Email: info@projectsglobal.in</p>
+          <p className="text-sm text-slate-700">Business Hours: Monday - Saturday | 10:00 AM - 7:00 PM (IST)</p>
 
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-14 lg:py-16">

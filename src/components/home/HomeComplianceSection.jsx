@@ -1,6 +1,7 @@
 'use client';
 
 import React from "react";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
 import isoLogo from "../../assets/image/logo/iso-certification-removebg-preview.png";
 import gstLogo from "../../assets/image/logo/gst-icon-goods-services-tax-badge-vector-stamp_654039-119-removebg-preview (1).png";
@@ -53,7 +54,7 @@ const HomeComplianceSection = ({ compliancePoints = [] }) => {
                     key={index}
                     className="mx-2.5 inline-flex h-24 w-[210px] items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 shadow-sm transition hover:-translate-y-0.5 hover:border-[rgba(15,23,42,0.28)]"
                   >
-                    <img src={item.logo.src} alt={item.name} className="h-14 w-auto object-contain" />
+                    <Image src={item.logo} alt={item.name} width={160} height={56} className="h-14 w-auto object-contain" />
                   </div>
                 ))}
               </div>

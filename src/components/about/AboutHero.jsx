@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
-import heroBanner from "../../assets/image/happy-young-asia-businessmen-businesswoman-meeting-brainstorming-some-new-ideas-about-project.jpg";
+import heroBanner from "../../assets/image/AboutHero1.jpg";
 
 const sliderLines = [
   "Scalable Support Operations",
@@ -24,7 +25,14 @@ const AboutHero = () => {
   return (
     <section className="relative overflow-hidden border-b border-slate-200 bg-slate-900 py-16 sm:py-18">
       <div className="absolute inset-0">
-        <img src={heroBanner.src} alt="Projects Global About" className="h-full w-full object-cover" />
+        <Image
+          src={heroBanner}
+          alt="Projects Global About"
+          fill
+          priority
+          sizes="100vw"
+          className="h-full w-full object-cover"
+        />
       </div>
       <div className="absolute inset-0 bg-[linear-gradient(108deg,rgba(2,6,23,0.74)_0%,rgba(2,6,23,0.58)_42%,rgba(2,6,23,0.56)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_35%,rgba(59,130,246,0.22),transparent_42%)]" />

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Card = ({
   children,
@@ -24,10 +25,12 @@ const Card = ({
       {...props}
     >
       {image && (
-        <div className="mb-4 -mx-6 -mt-6">
-          <img
-            src={image.src}
+        <div className="relative mb-4 -mx-6 -mt-6 h-48">
+          <Image
+            src={image.src || image}
             alt={image.alt || title}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="w-full h-48 object-cover"
           />
         </div>

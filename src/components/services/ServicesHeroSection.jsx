@@ -1,8 +1,9 @@
 ﻿'use client';
 
 import React from "react";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
-import servicesImg from "../../assets/image/representation-user-experience-interface-design.jpg";
+import servicesImg from "../../assets/image/GP-44.jpg";
 
 const ServicesHeroSection = () => {
   return (
@@ -21,7 +22,14 @@ const ServicesHeroSection = () => {
           </div>
 
           <div className="relative h-52 lg:h-full flex items-center justify-center bg-slate-100">
-            <img src={servicesImg.src} alt="Our Services" className="h-full w-full object-cover" />
+            <Image
+              src={servicesImg}
+              alt="Our Services"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
       </section>

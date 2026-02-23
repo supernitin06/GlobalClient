@@ -1,9 +1,9 @@
-﻿import inboundImage from "../../assets/image/what-is-call-center.webp";
-import outboundImage from "../../assets/image/digital-marketing-1497211_1920.jpg";
-import chatImage from "../../assets/image/customer-service-concept-illustration.webp";
-import emailImage from "../../assets/image/carlos-muza-hpjSkU2UYSU-unsplash.webp";
-import techImage from "../../assets/image/onur-binay-Uw_8vSroCSc-unsplash.jpg";
-import backOfficeImage from "../../assets/image/ekyc.webp";
+import inboundImage from "../../assets/image/GP3.jpg";
+import outboundImage from "../../assets/image/GP4.jpg";
+import chatImage from "../../assets/image/GP5.jpg";
+import emailImage from "../../assets/image/GP6.jpg";
+import techImage from "../../assets/image/GP7.jpg";
+import backOfficeImage from "../../assets/image/GP8.jpg";
 
 export const servicesData = [
   {
@@ -66,3 +66,4 @@ export const reportingMonitoring = [
   "SLA and KPI performance tracking",
   "Escalation reporting",
 ];
+

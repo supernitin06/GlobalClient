@@ -2,11 +2,12 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
 import Button from "../ui/Button";
 
-import processImage from "../../assets/image/vecteezy_teamwork-data-analysis-and-business-strategy-a_56410899.png";
-import industryImage from "../../assets/image/top-view-messy-office-workspace-with-tablet.jpg";
+import processImage from "../../assets/image/GP-26.jpg";
+import industryImage from "../../assets/image/GP-27.jpg";
 
 const HomeIndustriesProcessSection = ({ industries, processSteps }) => {
   return (
@@ -25,10 +26,11 @@ const HomeIndustriesProcessSection = ({ industries, processSteps }) => {
             <div>
               <div className="mb-5 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-1.5 aspect-video flex items-center justify-center">
                 {industryImage ? (
-                  <img
-                    src={industryImage.src}
+                  <Image
+                    src={industryImage}
                     alt="Industries we serve"
-                    loading="lazy"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 45vw"
                     className="h-full w-full rounded-xl object-cover"
                   />
                 ) : (
@@ -71,10 +73,11 @@ const HomeIndustriesProcessSection = ({ industries, processSteps }) => {
         <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_30px_rgba(15,23,42,0.08)]">
           <div className="relative border-b border-slate-200 aspect-video bg-slate-100 flex items-center justify-center">
             {processImage ? (
-              <img
-                src={processImage.src}
+              <Image
+                src={processImage}
                 alt="Outsourcing process workflow"
-                loading="lazy"
+                fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
                 className="h-full w-full object-cover"
               />
             ) : (

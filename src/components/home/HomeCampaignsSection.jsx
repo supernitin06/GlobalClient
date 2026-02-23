@@ -2,10 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
 import Button from "../ui/Button";
 
-import campaignImage from "../../assets/image/call-center-3614379_1920.jpg";
+import campaignImage from "../../assets/image/GP16.jpg";
 
 const HomeCampaignsSection = ({ campaigns }) => {
   return (
@@ -45,10 +46,11 @@ const HomeCampaignsSection = ({ campaigns }) => {
             <div className="relative min-h-[420px] border-t border-slate-200 bg-[linear-gradient(145deg,rgba(15,23,42,0.08),rgba(255,193,7,0.12))] lg:min-h-full lg:border-l lg:border-t-0 flex items-center justify-center">
               <div className="absolute inset-0 aspect-square lg:aspect-auto">
                 {campaignImage ? (
-                  <img
-                    src={campaignImage.src}
+                  <Image
+                    src={campaignImage}
                     alt="Campaign strategy"
-                    loading="lazy"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 45vw"
                     className="h-full w-full object-cover p-4"
                   />
                 ) : (
