@@ -14,7 +14,7 @@ const FAQPage = () => {
     };
 
     return (
-        <div className="relative min-h-screen bg-slate-50 pt-24 pb-20 overflow-hidden">
+        <div className="relative min-h-screen bg-slate-50  overflow-hidden">
             {/* Premium Background Overlays */}
             <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(circle_at_70%_20%,rgba(255,193,7,0.08),transparent_70%)] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[radial-gradient(circle_at_20%_80%,rgba(15,23,42,0.05),transparent_70%)] pointer-events-none" />

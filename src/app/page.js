@@ -46,10 +46,7 @@ const Home = () => {
       <HomeBlogSection blogs={blogs} />
       {/* <HomeComplianceSection compliancePoints={compliancePoints} /> */}
       <HomeFaqSection faqItems={faqItems} />
-      <div className="">
       <HomePartnerCtaSection />
-      </div>
-
     </div>
   );
 };

@@ -140,7 +140,7 @@ function NewsletterBanner() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden mt-10 md:mt-16 lg:mt-24"
+      className="relative overflow-hidden mt-6 md:mt-8 lg:mt-10"
       style={{
         background: "linear-gradient(135deg, #0f1e45 0%, #1e3d85 45%, #162d68 78%, #0a1530 100%)",
       }}

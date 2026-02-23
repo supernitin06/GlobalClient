@@ -22,7 +22,7 @@ const ctaStats = [
 
 const HomePartnerCtaSection = () => {
   return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10 md:mt-16 lg:mt-24 grid items-stretch gap-6 lg:grid-cols-2">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-6 md:mt-8 lg:mt-10 grid items-stretch gap-6 lg:grid-cols-2">
       <ScrollReveal variant="up" className="h-full">
         <article className="flex h-full min-h-[460px] flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_30px_rgba(15,23,42,0.08)]">
           <div className="relative h-44 border-b border-slate-200 bg-slate-100 flex items-center justify-center">
