@@ -6,7 +6,6 @@ import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Button from "@/components/ui/Button";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 import heroImage1 from "../../assets/image/Hero1.jpg";
 import heroImage2 from "../../assets/image/Hero2.jpg";
@@ -66,53 +65,78 @@ const HomeHeroSection = ({
   const heroPopTimerRef = useRef(null);
   const heroRef = useRef(null);
 
-  useGSAP(() => {
-    const tl = gsap.timeline();
+  useEffect(() => {
+    if (!heroRef.current) return undefined;
 
-    tl.from(".pg-hero-kicker", {
-      y: 20,
-      opacity: 0,
-      duration: 0.6,
-      ease: "power3.out"
-    })
-      .from(".pg-hero-word", {
-        y: 40,
-        opacity: 0,
-        rotateX: -45,
-        stagger: 0.05,
-        duration: 0.8,
-        ease: "power4.out"
-      }, "-=0.4")
-      .from(".pg-hero-subline", {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline();
+
+      tl.from(".pg-hero-kicker", {
         y: 20,
         opacity: 0,
-        stagger: 0.1,
         duration: 0.6,
-        ease: "power3.out"
-      }, "-=0.5")
-      .from(".pg-hero-chip", {
-        scale: 0.8,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: "back.out(1.7)"
-      }, "-=0.4")
-      .from(".pg-hero-channel", {
-        x: -20,
-        opacity: 0,
-        stagger: 0.03,
-        duration: 0.4,
-        ease: "power2.out"
-      }, "-=0.4")
-      .from(".pg-hero-cta-btn", {
-        y: 30,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 0.7,
-        ease: "power3.out"
-      }, "-=0.3");
+        ease: "power3.out",
+      })
+        .from(
+          ".pg-hero-word",
+          {
+            y: 40,
+            opacity: 0,
+            rotateX: -45,
+            stagger: 0.05,
+            duration: 0.8,
+            ease: "power4.out",
+          },
+          "-=0.4"
+        )
+        .from(
+          ".pg-hero-subline",
+          {
+            y: 20,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 0.6,
+            ease: "power3.out",
+          },
+          "-=0.5"
+        )
+        .from(
+          ".pg-hero-chip",
+          {
+            scale: 0.8,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 0.5,
+            ease: "back.out(1.7)",
+          },
+          "-=0.4"
+        )
+        .from(
+          ".pg-hero-channel",
+          {
+            x: -20,
+            opacity: 0,
+            stagger: 0.03,
+            duration: 0.4,
+            ease: "power2.out",
+          },
+          "-=0.4"
+        )
+        .from(
+          ".pg-hero-cta-btn",
+          {
+            y: 30,
+            opacity: 0,
+            stagger: 0.15,
+            duration: 0.7,
+            ease: "power3.out",
+          },
+          "-=0.3"
+        );
+    }, heroRef);
 
-  }, { scope: heroRef });
+    return () => ctx.revert();
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
