@@ -1286,6 +1286,24 @@ button:hover,
   content: none;
 }
 
+.pg-project-bullet-list li {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.pg-project-bullet-list li::before {
+  content: none;
+}
+
+.pg-partner-bullet-list li {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.pg-partner-bullet-list li::before {
+  content: none;
+}
+
 .pg-about-services-shell {
   background:
     radial-gradient(circle at 8% 0%, rgba(30, 61, 133, 0.08), transparent 35%),
