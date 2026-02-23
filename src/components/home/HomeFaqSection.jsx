@@ -13,9 +13,11 @@ const HomeFaqSection = ({ faqItems = [] }) => {
       <ScrollReveal variant="up">
         <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_42px_rgba(15,23,42,0.08)]">
           {/* Header */}
-          <div className="relative overflow-hidden border-b border-slate-200 px-7 py-7">
-            <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.04),rgba(255,193,7,0.10))]" />
-            <div className="pointer-events-none absolute -left-10 -top-10 h-40 w-40 rounded-full bg-[rgba(30,61,133,0.1)] blur-2xl" />
+          <div className="relative overflow-hidden border-b border-slate-200 px-7 py-8">
+            <div className="absolute inset-0 bg-[linear-gradient(125deg,rgba(15,23,42,0.04),rgba(30,61,133,0.09),rgba(255,193,7,0.12))]" />
+            <div className="pointer-events-none absolute -left-10 -top-10 h-44 w-44 rounded-full bg-[rgba(30,61,133,0.11)] blur-2xl" />
+            <div className="pointer-events-none absolute -right-12 -bottom-16 h-52 w-52 rounded-full bg-[rgba(255,193,7,0.18)] blur-2xl" />
+            <div className="absolute left-0 right-0 top-0 h-[3px] bg-[linear-gradient(90deg,#1e3d85,#3b82f6,#22c55e,#f59e0b)]" />
             <div className="relative">
               <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(30,61,133,0.18)] bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-[var(--color-primary)]">
                 <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -23,10 +25,17 @@ const HomeFaqSection = ({ faqItems = [] }) => {
                 </svg>
                 FAQ
               </div>
-              <h2 className="mt-3 text-3xl font-extrabold text-slate-900">
-                Everything You Need Before Starting
+              <h2 className="mt-3 text-3xl font-black leading-tight sm:text-4xl">
+                <span className="bg-gradient-to-r from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[#3b82f6] bg-clip-text text-transparent">
+                  Everything You Need
+                </span>{" "}
+                <span className="bg-gradient-to-r from-[#f59e0b] to-[#eab308] bg-clip-text text-transparent">
+                  Before Starting
+                </span>
               </h2>
-              <p className="mt-1.5 text-sm text-slate-500">Common questions from clients and call center partners.</p>
+              <p className="mt-2 text-sm font-medium text-slate-600">
+                Common questions from clients and call center partners.
+              </p>
             </div>
           </div>
 
