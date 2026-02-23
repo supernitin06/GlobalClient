@@ -23,11 +23,13 @@ const ServicesCardsSection = ({ services }) => {
 
             <div className="p-6">
               <h2 className="text-2xl font-bold">{service.title}</h2>
-              <ul className="mt-3 grid gap-2">
-                {service.coverage.map((item, itemIndex) => (
-                  <li key={item} className="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
-                    <span className="mt-0.5 inline-flex h-4 min-w-[1rem] items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[10px] font-bold text-[var(--color-primary-dark)]">
-                      {itemIndex + 1}
+              <ul className="pg-service-coverage-list mt-3 grid gap-2.5">
+                {service.coverage.map((item) => (
+                  <li
+                    key={item}
+                    className="group/item flex items-start gap-2.5 rounded-xl border border-slate-200 bg-[linear-gradient(145deg,rgba(255,255,255,0.96),rgba(241,245,249,0.9))] pl-5 pr-3.5 py-2.5 text-sm font-medium text-slate-700 transition hover:border-[rgba(30,61,133,0.28)] hover:shadow-[0_10px_18px_rgba(15,23,42,0.08)]"
+                  >
+                    <span className="mt-1 inline-flex h-2 min-w-[0.5rem] rounded-full bg-[linear-gradient(135deg,#1e3d85,#3b82f6)] shadow-[0_0_0_3px_rgba(30,61,133,0.14)] transition group-hover/item:scale-110">
                     </span>
                     <span>{item}</span>
                   </li>

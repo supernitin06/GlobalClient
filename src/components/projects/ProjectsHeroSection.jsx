@@ -11,12 +11,10 @@ const ProjectsHeroSection = () => {
         <div className="grid gap-0 lg:min-h-[390px] lg:grid-cols-[1.05fr_0.95fr]">
           <div className="flex flex-col justify-center border-b border-slate-200 bg-[linear-gradient(120deg,rgba(15,23,42,0.08),rgba(255,193,7,0.12))] px-7 py-8 lg:border-b-0 lg:border-r lg:px-9">
             <p className="text-xs font-bold uppercase tracking-[0.09em] text-slate-600">Projects & Campaigns</p>
-            <h1 className="mt-2 max-w-2xl text-3xl font-bold leading-tight sm:text-4xl">
-              <span className="bg-gradient-to-r from-[var(--color-primary)] via-[#1e293b] to-[#334155] bg-clip-text text-transparent">
-                Outsourcing Campaign Models Built for Performance and Scalability
-              </span>
+            <h1 className="pg-page-hero-title mt-2 max-w-2xl text-3xl font-bold leading-tight sm:text-4xl">
+              Outsourcing Campaign Models Built for Performance and Scalability
             </h1>
-            <p className="mt-4 max-w-xl text-lg text-slate-700">
+            <p className="pg-page-hero-copy mt-4 max-w-xl text-lg text-slate-700">
               Structured campaign execution across customer support, sales, technical helpdesk, and back-office workflows.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">

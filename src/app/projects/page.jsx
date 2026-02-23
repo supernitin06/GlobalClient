@@ -7,7 +7,7 @@ import { campaignTypes, engagementModels, executionFramework } from "@/component
 
 const Projects = () => {
     return (
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 pt-2 pb-6 sm:px-6 lg:px-8">
             <ProjectsHeroSection />
             <ProjectsTwoColumnSection campaignTypes={campaignTypes} executionFramework={executionFramework} />
             <ProjectsEngagementSection engagementModels={engagementModels} />

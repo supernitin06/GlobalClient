@@ -14,10 +14,10 @@ const RfpHeroSection = () => {
             <p className="inline-flex rounded-full border border-[rgba(13,110,253,0.28)] bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.09em] text-slate-600">
               Request a Proposal (RFP)
             </p>
-            <h1 className="mt-3 max-w-2xl text-4xl font-bold leading-tight">
+            <h1 className="pg-page-hero-title mt-3 max-w-2xl text-4xl font-bold leading-tight">
               Submit your project requirements and receive a customised outsourcing proposal.
             </h1>
-            <p className="mt-4 max-w-xl text-slate-700">Our team will respond within 24-48 business hours.</p>
+            <p className="pg-page-hero-copy mt-4 max-w-xl text-slate-700">Our team will respond within 24-48 business hours.</p>
             <div className="mt-5 flex flex-wrap gap-2">
               <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700">SLA-Focused Planning</span>
               <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700">Custom Scope Mapping</span>

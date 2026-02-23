@@ -14,14 +14,14 @@ const links = [
   { label: "Services", href: "/services" },
   { label: "Industries", href: "/industries" },
   { label: "Projects", href: "/projects" },
-  { label: "Partner With Us", href: "/partnerwithus" }, // Fixed path
-  { label: "RFP", href: "/requestproposal" }, // Fixed path
+  { label: "Partner With Us", href: "/partnerwithus" }, 
+  { label: "RFP", href: "/requestproposal" }, 
   { label: "Contact", href: "/contact" },
 ];
 
 const baseLink = "rounded-full px-3.5 py-2 text-sm font-semibold transition";
 const activeLink =
-  "bg-[linear-gradient(135deg,var(--color-primary),var(--color-primary-dark))] text-white shadow-[0_8px_18px_rgba(15,23,42,0.25)]";
+  "bg-[linear-gradient(135deg,var(--color-primary),var(--color-primary-dark))] !text-white shadow-[0_8px_18px_rgba(15,23,42,0.25)]";
 const idleLink = "text-slate-700 hover:bg-slate-100 hover:text-slate-900";
 
 const Navbar = () => {
@@ -29,6 +29,7 @@ const Navbar = () => {
   const pathname = usePathname();
   const { state, setState } = useAppContext();
   const isDark = state.theme === "dark";
+  const isHome = pathname === "/";
 
   const onToggleTheme = () => {
     setState((prev) => ({
@@ -39,8 +40,14 @@ const Navbar = () => {
 
   return (
     <header className="fixed inset-x-0 top-10 z-40">
-      <div className="pg-container pt-2">
-        <div className="relative flex h-[74px] items-center justify-between rounded-2xl border border-slate-200/80 bg-white/95 px-3 shadow-[0_14px_34px_rgba(15,23,42,0.12)] backdrop-blur-xl lg:px-4">
+      <div className="pg-container pt-1">
+        <div
+          className={`relative flex h-[74px] items-center justify-between rounded-2xl px-3 backdrop-blur-xl lg:px-4 ${
+            isHome
+              ? "border border-white/65 bg-white/92 shadow-[0_14px_34px_rgba(2,6,23,0.18)]"
+              : "border border-slate-200/80 bg-white/95 shadow-[0_14px_34px_rgba(15,23,42,0.12)]"
+          }`}
+        >
           <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(15,23,42,0.45),transparent)]" />
 
           <Link href="/" className="flex items-center">
@@ -51,17 +58,26 @@ const Navbar = () => {
             />
           </Link>
 
-          <nav className="hidden items-center gap-1 rounded-full border border-slate-200 bg-white/75 p-1 lg:flex">
+          <nav
+            className={`hidden items-center gap-1 rounded-full p-1 lg:flex ${
+              isHome
+                ? "border border-slate-200 bg-white/85"
+                : "border border-slate-200 bg-white/75"
+            }`}
+          >
             {links.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`${baseLink} ${isActive ? activeLink : idleLink}`}
-                >
-                  {link.label}
-                </Link>
+               const isActive = pathname === link.href;
+               const idleClass = isHome
+                 ? "text-slate-800 hover:bg-slate-100 hover:text-slate-900"
+                 : idleLink;
+               return (
+                 <Link
+                   key={link.href}
+                   href={link.href}
+                   className={`${baseLink} ${isActive ? activeLink : idleClass}`}
+                 >
+                   {link.label}
+                 </Link>
               );
             })}
           </nav>
@@ -70,8 +86,10 @@ const Navbar = () => {
             <button
               type="button"
               onClick={onToggleTheme}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:text-[var(--color-primary-dark)]"
-            >
+               className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-700 transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:text-[var(--color-primary-dark)] ${
+                 isHome ? "border border-slate-300 bg-white/90" : "border border-slate-300 bg-white"
+               }`}
+              >
               {isDark ? (
                 <svg
                   className="h-4 w-4"

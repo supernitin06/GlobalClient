@@ -1,58 +1,86 @@
-'use client';
+"use client";
 
 import React from "react";
 import ScrollReveal from "../ui/ScrollReveal";
 import aboutImg from "../../assets/image/happy-young-asia-businessmen-businesswoman-meeting-brainstorming-some-new-ideas-about-project.jpg";
 
-const AboutIntroSection = ({ intro, boxClass }) => {
+const AboutIntroSection = ({ intro }) => {
+  const headingWords = intro.title.split(" ");
+
   return (
-    <section className="grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
-      <ScrollReveal variant="left">
-        <article className={`${boxClass} overflow-hidden`}>
-          <div className="mb-4 inline-flex rounded-full border border-[rgba(15,23,42,0.26)] bg-[var(--color-primary-light)] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[var(--color-primary-dark)]">
+    <section className="relative grid items-stretch gap-8 lg:grid-cols-2">
+      <ScrollReveal variant="left" className="h-full">
+        <article className="relative flex h-full min-h-[500px] flex-col rounded-3xl border border-slate-200/80 bg-white/70 p-5 sm:p-7">
+          <span className="absolute left-4 top-5 h-14 w-1 rounded-full bg-[linear-gradient(180deg,var(--color-primary),transparent)]" />
+          <div className="mb-5 ml-3 inline-flex rounded-full border border-[rgba(15,23,42,0.24)] bg-[var(--color-primary-light)] px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-[var(--color-primary-dark)]">
             {intro.label}
           </div>
-          <h1 className="text-[2.85rem] font-extrabold leading-[1.08] text-slate-900">{intro.title}</h1>
+          <h1
+            className="max-w-[19ch] text-[2.35rem] font-extrabold leading-[1.08] sm:text-[2.9rem]"
+            style={{ color: "var(--color-primary)", backgroundImage: "none" }}
+          >
+            {headingWords.map((word, index) => (
+              <span
+                key={`${word}-${index}`}
+                className="pg-about-title-word"
+                style={{ "--about-word-index": index }}
+              >
+                {word}
+                {index < headingWords.length - 1 ? "\u00a0" : ""}
+              </span>
+            ))}
+          </h1>
           {intro.paragraphs.map((line, index) => (
-            <p key={line} className={`${index === 0 ? "mt-5" : "mt-3"} text-slate-600`}>
+            <p
+              key={line}
+              className={`${index === 0 ? "mt-5" : "mt-3"} pg-about-copy-line max-w-[62ch] text-base leading-8 text-slate-700`}
+              style={{ "--about-line-index": index }}
+            >
               {line}
             </p>
           ))}
-          <div className="mt-5 grid gap-2 sm:grid-cols-3">
-            <div className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-center text-xs font-semibold text-slate-700">
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            <div className="rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-semibold text-slate-700 shadow-sm">
               SLA-Driven
             </div>
-            <div className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-center text-xs font-semibold text-slate-700">
+            <div className="rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-semibold text-slate-700 shadow-sm">
               Verified Centers
             </div>
-            <div className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-center text-xs font-semibold text-slate-700">
+            <div className="rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-semibold text-slate-700 shadow-sm">
               Trained Teams
             </div>
           </div>
         </article>
       </ScrollReveal>
 
-      <ScrollReveal variant="zoom" delay={120}>
-        <article className="relative h-full min-h-[420px] overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_16px_30px_rgba(15,23,42,0.08)]">
-          <img src={aboutImg.src} alt="About Projects Global" className="h-full w-full rounded-xl object-cover" />
-          <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
+      <ScrollReveal variant="zoom" delay={120} className="h-full">
+        <article className="relative h-full min-h-[500px] overflow-hidden rounded-[2rem] border border-slate-200/90 bg-white shadow-[0_22px_46px_rgba(15,23,42,0.14)]">
+          <img
+            src={aboutImg.src}
+            alt="About Projects Global"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent" />
 
           <div className="absolute left-4 right-4 top-4 grid grid-cols-3 gap-2">
-            <div className="rounded-lg border border-white/35 bg-white/85 px-2 py-1 text-center text-[11px] font-semibold text-slate-800 backdrop-blur-sm">
+            <div className="rounded-xl border border-white/35 bg-white/88 px-2 py-1.5 text-center text-xs font-semibold text-slate-800 backdrop-blur-sm">
               24x7 Coverage
             </div>
-            <div className="rounded-lg border border-white/35 bg-white/85 px-2 py-1 text-center text-[11px] font-semibold text-slate-800 backdrop-blur-sm">
+            <div className="rounded-xl border border-white/35 bg-white/88 px-2 py-1.5 text-center text-xs font-semibold text-slate-800 backdrop-blur-sm">
               QA Monitoring
             </div>
-            <div className="rounded-lg border border-white/35 bg-white/85 px-2 py-1 text-center text-[11px] font-semibold text-slate-800 backdrop-blur-sm">
+            <div className="rounded-xl border border-white/35 bg-white/88 px-2 py-1.5 text-center text-xs font-semibold text-slate-800 backdrop-blur-sm">
               SLA Delivery
             </div>
           </div>
 
-          <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-white/40 bg-white/92 p-4 backdrop-blur-sm">
-            <p className="text-xs font-bold uppercase tracking-wide text-[var(--color-primary-dark)]">Performance-Driven Operations</p>
-            <p className="mt-1 text-base text-slate-700">
-              Reliable outsourcing model supported by trained teams, QA monitoring, and SLA discipline.
+          <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/35 bg-black/35 p-4 backdrop-blur-md">
+            <p className="pg-about-caption-kicker text-xs font-bold uppercase tracking-[0.11em] text-white/90">
+              Performance-Driven Operations
+            </p>
+            <p className="pg-about-caption-line mt-2 max-w-[42ch] text-xl font-bold leading-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.35)]">
+              Reliable outsourcing execution backed by trained teams and SLA
+              discipline.
             </p>
           </div>
         </article>

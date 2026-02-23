@@ -23,11 +23,11 @@ const HomeWhyChooseSection = ({ whyChooseUs }) => {
                 className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/70 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(13,110,253,0.32)] hover:bg-white hover:shadow-md"
               >
                 <span className="pointer-events-none absolute -right-6 -top-6 h-14 w-14 rounded-full bg-[rgba(13,110,253,0.08)] transition-transform duration-300 group-hover:scale-110" />
-                <div className="relative mb-3 flex items-center gap-2">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[var(--color-primary)] text-xs font-bold text-white">
-                    {index + 1}
+                <div className="relative mb-3 flex items-center gap-2.5">
+                  <span className="inline-flex h-8 min-w-[2.1rem] items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--color-primary),var(--color-primary-dark))] px-2 text-[11px] font-extrabold text-white shadow-[0_8px_16px_rgba(15,23,42,0.24)]">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-primary-dark)]" />
+                  <span className="h-px flex-1 bg-[linear-gradient(90deg,rgba(13,110,253,0.35),transparent)]" />
                 </div>
                 <p className="relative text-sm font-semibold leading-6 text-slate-700">{item}</p>
               </div>
