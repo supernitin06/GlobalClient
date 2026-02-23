@@ -8,6 +8,9 @@ import HomePartnerCtaSection from "@/components/home/HomePartnerCtaSection";
 import HomeStatsSection from "@/components/home/HomeStatsSection";
 import HomeComplianceSection from "@/components/home/HomeComplianceSection";
 import HomeFaqSection from "@/components/home/HomeFaqSection";
+import ProjectsFeaturedTopSection from "@/components/projects/ProjectsFeaturedTopSection";
+import ProjectsOpportunitiesSection from "@/components/projects/ProjectsOpportunitiesSection";
+import ProjectsUpcomingSection from "@/components/projects/ProjectsUpcomingSection";
 import {
   campaigns,
   compliancePoints,
@@ -20,6 +23,7 @@ import {
   trustHighlights,
   whyChooseUs,
 } from "@/components/home/homeData";
+import { liveProjectOpportunities, upcomingProjects } from "@/components/projects/projectsData";
 
 const Home = () => {
   return (
@@ -30,6 +34,18 @@ const Home = () => {
       <HomeStatsSection stats={impactStats} />
       <HomeAboutServicesSection services={services} />
       <HomeWhyChooseSection whyChooseUs={whyChooseUs} />
+      <div className="pg-container">
+        <ProjectsFeaturedTopSection
+          opportunities={liveProjectOpportunities}
+          featuredLimit={liveProjectOpportunities.length}
+        />
+      </div>
+      <div className="pg-container">
+        <ProjectsOpportunitiesSection opportunities={liveProjectOpportunities} />
+      </div>
+      <div className="pg-container">
+        <ProjectsUpcomingSection projects={upcomingProjects} />
+      </div>
       <HomeIndustriesProcessSection industries={industries} processSteps={processSteps} />
       <HomeCampaignsSection campaigns={campaigns} />
       <HomeComplianceSection compliancePoints={compliancePoints} />
