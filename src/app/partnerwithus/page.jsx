@@ -27,9 +27,11 @@ const requirements = [
 ];
 
 const inputClass =
-    "mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 outline-none transition focus:border-[var(--color-primary)] focus:shadow-[0_0_0_3px_rgba(13,110,253,0.1)]";
-const labelClass = "text-sm font-medium text-slate-700";
-const sectionClass = "rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_10px_22px_rgba(15,23,42,0.06)]";
+    "mt-1.5 w-full rounded-xl border border-slate-300 bg-slate-50/70 px-3.5 py-2.5 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-[var(--color-primary)] focus:bg-white focus:shadow-[0_0_0_3px_rgba(13,110,253,0.12)]";
+const labelClass = "text-sm font-semibold text-slate-700";
+const infoCardClass = "h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_10px_22px_rgba(15,23,42,0.06)]";
+const formSectionClass = "rounded-2xl border border-slate-200 bg-[linear-gradient(145deg,rgba(255,255,255,0.98),rgba(248,250,252,0.94))] p-5 sm:p-6 shadow-[0_10px_20px_rgba(15,23,42,0.05)]";
+const sectionTitleClass = "text-lg font-bold sm:text-xl";
 
 const PartnerWithUs = () => {
     const [submitted, setSubmitted] = useState(false);
@@ -69,18 +71,19 @@ const PartnerWithUs = () => {
                 </section>
             </ScrollReveal>
 
-            <section className="mt-6 grid gap-6 md:grid-cols-2">
-                <ScrollReveal variant="left">
-                    <article className={sectionClass}>
+            <section className="mt-6 grid items-stretch gap-6 md:grid-cols-2">
+                <ScrollReveal variant="left" className="h-full">
+                    <article className={infoCardClass}>
                         <div className="rounded-xl border border-slate-200 bg-[linear-gradient(120deg,rgba(13,110,253,0.07),rgba(255,193,7,0.1))] px-4 py-3">
                             <h2 className="text-2xl font-bold">Why Partner with Projects Global?</h2>
                         </div>
-                        <ul className="mt-4 grid gap-2 text-slate-700">
-                            {whyPartner.map((item, index) => (
-                                <li key={item} className="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm">
-                                    <span className="mt-0.5 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[10px] font-bold text-[var(--color-primary-dark)]">
-                                        {index + 1}
-                                    </span>
+                        <ul className="pg-partner-bullet-list mt-4 grid gap-2.5 text-slate-700">
+                            {whyPartner.map((item) => (
+                                <li
+                                    key={item}
+                                    className="flex items-start gap-2.5 rounded-xl border border-slate-200 bg-[linear-gradient(145deg,rgba(255,255,255,0.96),rgba(241,245,249,0.9))] pl-5 pr-3 py-2.5 text-sm font-medium"
+                                >
+                                    <span className="mt-1 inline-flex h-2 min-w-[0.5rem] rounded-full bg-[var(--color-primary)]" />
                                     <span>{item}</span>
                                 </li>
                             ))}
@@ -88,17 +91,18 @@ const PartnerWithUs = () => {
                     </article>
                 </ScrollReveal>
 
-                <ScrollReveal variant="right" delay={90}>
-                    <article className={sectionClass}>
+                <ScrollReveal variant="right" delay={90} className="h-full">
+                    <article className={infoCardClass}>
                         <div className="rounded-xl border border-slate-200 bg-[linear-gradient(120deg,rgba(13,110,253,0.07),rgba(255,193,7,0.1))] px-4 py-3">
                             <h2 className="text-2xl font-bold">Minimum Operational Requirements</h2>
                         </div>
-                        <ul className="mt-4 grid gap-2 text-slate-700">
-                            {requirements.map((item, index) => (
-                                <li key={item} className="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm">
-                                    <span className="mt-0.5 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[10px] font-bold text-[var(--color-primary-dark)]">
-                                        {index + 1}
-                                    </span>
+                        <ul className="pg-partner-bullet-list mt-4 grid gap-2.5 text-slate-700">
+                            {requirements.map((item) => (
+                                <li
+                                    key={item}
+                                    className="flex items-start gap-2.5 rounded-xl border border-slate-200 bg-[linear-gradient(145deg,rgba(255,255,255,0.96),rgba(241,245,249,0.9))] pl-5 pr-3 py-2.5 text-sm font-medium"
+                                >
+                                    <span className="mt-1 inline-flex h-2 min-w-[0.5rem] rounded-full bg-[var(--color-primary)]" />
                                     <span>{item}</span>
                                 </li>
                             ))}
@@ -108,13 +112,21 @@ const PartnerWithUs = () => {
             </section>
 
             <ScrollReveal variant="up" delay={120}>
-                <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_12px_24px_rgba(15,23,42,0.08)]">
-                    <h2 className="text-2xl font-bold text-slate-900">Apply for Projects - Call Center Registration Form</h2>
-                    <p className="mt-2 text-sm text-slate-600">ProjectsGlobal.in (International US/UK Style)</p>
+                <section className="mt-6 rounded-2xl border border-slate-200 bg-[linear-gradient(145deg,rgba(255,255,255,0.98),rgba(248,250,252,0.95))] p-5 shadow-[0_12px_24px_rgba(15,23,42,0.08)] sm:p-6">
+                    <h2 className="text-2xl font-bold">Apply for Projects - Call Center Registration Form</h2>
+                    <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+                        Complete the registration form to get evaluated for active international campaigns.
+                        Our onboarding team reviews infrastructure, compliance readiness, and delivery capacity.
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2.5">
+                        <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700">9 Evaluation Sections</span>
+                        <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700">24-72h Review Timeline</span>
+                        <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700">NDA & Compliance Ready</span>
+                    </div>
 
-                    <form className="mt-6 space-y-8" onSubmit={handleSubmit}>
-                        <div className={sectionClass}>
-                            <h3 className="text-xl font-semibold text-slate-900">A. Company / Center Information</h3>
+                    <form className="mt-6 space-y-6" onSubmit={handleSubmit}>
+                        <div className={formSectionClass}>
+                            <h3 className={sectionTitleClass}>A. Company / Center Information</h3>
                             <div className="mt-4 grid gap-4 md:grid-cols-2">
                                 <label className={labelClass}>
                                     Call Center / Company Name *
@@ -166,8 +178,8 @@ const PartnerWithUs = () => {
                             </div>
                         </div>
 
-                        <div className={sectionClass}>
-                            <h3 className="text-xl font-semibold text-slate-900">B. Contact Person Details</h3>
+                        <div className={formSectionClass}>
+                            <h3 className={sectionTitleClass}>B. Contact Person Details</h3>
                             <div className="mt-4 grid gap-4 md:grid-cols-2">
                                 <label className={labelClass}>
                                     Full Name *
@@ -192,8 +204,8 @@ const PartnerWithUs = () => {
                             </div>
                         </div>
 
-                        <div className={sectionClass}>
-                            <h3 className="text-xl font-semibold text-slate-900">C. Center Capacity</h3>
+                        <div className={formSectionClass}>
+                            <h3 className={sectionTitleClass}>C. Center Capacity</h3>
                             <div className="mt-4 grid gap-4 md:grid-cols-2">
                                 <label className={labelClass}>
                                     Total Seats Available *
@@ -211,7 +223,7 @@ const PartnerWithUs = () => {
                                         <option>No</option>
                                     </select>
                                 </label>
-                                <fieldset className="rounded-lg border border-slate-300 p-3">
+                                <fieldset className="rounded-xl border border-slate-300 bg-white/80 p-3">
                                     <legend className="px-2 text-sm text-slate-600">Non-Voice Capability *</legend>
                                     <div className="mt-2 flex flex-wrap gap-4 text-sm text-slate-700">
                                         <label><input type="checkbox" className="mr-2" required />Chat</label>
@@ -229,7 +241,7 @@ const PartnerWithUs = () => {
                                         <option>Rotational</option>
                                     </select>
                                 </label>
-                                <fieldset className="rounded-lg border border-slate-300 p-3">
+                                <fieldset className="rounded-xl border border-slate-300 bg-white/80 p-3">
                                     <legend className="px-2 text-sm text-slate-600">Languages Supported *</legend>
                                     <div className="mt-2 flex flex-wrap gap-4 text-sm text-slate-700">
                                         <label><input type="checkbox" className="mr-2" required />English</label>
@@ -240,8 +252,8 @@ const PartnerWithUs = () => {
                             </div>
                         </div>
 
-                        <div className={sectionClass}>
-                            <h3 className="text-xl font-semibold text-slate-900">D. Experience & Expertise</h3>
+                        <div className={formSectionClass}>
+                            <h3 className={sectionTitleClass}>D. Experience & Expertise</h3>
                             <div className="mt-4 grid gap-4 md:grid-cols-2">
                                 <label className={labelClass}>
                                     Total BPO Experience (Years) *
@@ -293,8 +305,8 @@ const PartnerWithUs = () => {
                             </div>
                         </div>
 
-                        <div className={sectionClass}>
-                            <h3 className="text-xl font-semibold text-slate-900">E. Infrastructure & Technology</h3>
+                        <div className={formSectionClass}>
+                            <h3 className={sectionTitleClass}>E. Infrastructure & Technology</h3>
                             <div className="mt-4 grid gap-4 md:grid-cols-2">
                                 <label className={labelClass}>
                                     Internet Bandwidth (Mbps) *
@@ -351,8 +363,8 @@ const PartnerWithUs = () => {
                             </div>
                         </div>
 
-                        <div className={sectionClass}>
-                            <h3 className="text-xl font-semibold text-slate-900">F. Compliance Readiness</h3>
+                        <div className={formSectionClass}>
+                            <h3 className={sectionTitleClass}>F. Compliance Readiness</h3>
                             <div className="mt-4 grid gap-4 md:grid-cols-2">
                                 <label className={labelClass}>
                                     Are all agents KYC Verified? *
@@ -405,8 +417,8 @@ const PartnerWithUs = () => {
                             </div>
                         </div>
 
-                        <div className={sectionClass}>
-                            <h3 className="text-xl font-semibold text-slate-900">G. Document Upload (Optional)</h3>
+                        <div className={formSectionClass}>
+                            <h3 className={sectionTitleClass}>G. Document Upload (Optional)</h3>
                             <div className="mt-4 grid gap-4 md:grid-cols-2">
                                 <label className={labelClass}>
                                     Upload Company Registration Certificate
@@ -427,16 +439,16 @@ const PartnerWithUs = () => {
                             </div>
                         </div>
 
-                        <div className={sectionClass}>
-                            <h3 className="text-xl font-semibold text-slate-900">H. Additional Notes</h3>
+                        <div className={formSectionClass}>
+                            <h3 className={sectionTitleClass}>H. Additional Notes</h3>
                             <label className={`${labelClass} mt-4 block`}>
                                 Message / Additional Information
                                 <textarea className={inputClass} rows="4" />
                             </label>
                         </div>
 
-                        <div className={sectionClass}>
-                            <h3 className="text-xl font-semibold text-slate-900">I. Consent</h3>
+                        <div className={formSectionClass}>
+                            <h3 className={sectionTitleClass}>I. Consent</h3>
                             <label className="mt-4 flex items-start gap-3 text-sm text-slate-700">
                                 <input type="checkbox" required className="mt-1 h-4 w-4 accent-[var(--color-primary)]" />
                                 <span>

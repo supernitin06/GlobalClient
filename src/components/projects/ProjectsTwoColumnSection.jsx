@@ -9,12 +9,10 @@ const ProjectsTwoColumnSection = ({ campaignTypes, executionFramework }) => {
           <div className="border-b border-slate-200 bg-[linear-gradient(120deg,rgba(13,110,253,0.07),rgba(255,193,7,0.1))] px-6 py-4">
             <h2 className="text-2xl font-bold">Campaign Types We Support</h2>
           </div>
-          <ul className="grid gap-2 p-6">
-            {campaignTypes.map((item, index) => (
-              <li key={item} className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
-                <span className="inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[10px] font-bold text-[var(--color-primary-dark)]">
-                  {index + 1}
-                </span>
+          <ul className="pg-project-bullet-list grid gap-2 p-6">
+            {campaignTypes.map((item) => (
+              <li key={item} className="flex items-center gap-2.5 rounded-lg border border-slate-200 bg-slate-50 pl-7 pr-3 py-2 text-sm text-slate-700">
+                <span className="ml-1 inline-flex h-2 min-w-[0.5rem] rounded-full bg-[var(--color-primary)]" />
                 <span>{item}</span>
               </li>
             ))}
@@ -27,12 +25,10 @@ const ProjectsTwoColumnSection = ({ campaignTypes, executionFramework }) => {
           <div className="border-b border-slate-200 bg-[linear-gradient(120deg,rgba(13,110,253,0.07),rgba(255,193,7,0.1))] px-6 py-4">
             <h2 className="text-2xl font-bold">Project Execution Framework</h2>
           </div>
-          <ul className="grid gap-2 p-6">
-            {executionFramework.map((item, index) => (
-              <li key={item} className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
-                <span className="inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[10px] font-bold text-[var(--color-primary-dark)]">
-                  {index + 1}
-                </span>
+          <ul className="pg-project-bullet-list grid gap-2 p-6">
+            {executionFramework.map((item) => (
+              <li key={item} className="flex items-center gap-2.5 rounded-lg border border-slate-200 bg-slate-50 pl-7 pr-3 py-2 text-sm text-slate-700">
+                <span className="ml-1 inline-flex h-2 min-w-[0.5rem] rounded-full bg-[var(--color-primary)]" />
                 <span>{item}</span>
               </li>
             ))}

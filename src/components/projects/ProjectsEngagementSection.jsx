@@ -9,11 +9,9 @@ const ProjectsEngagementSection = ({ engagementModels }) => {
           <h2 className="text-2xl font-bold">Engagement Models</h2>
         </div>
         <div className="grid gap-3 p-6 md:grid-cols-2">
-          {engagementModels.map((item, index) => (
+          {engagementModels.map((item) => (
             <div key={item} className="flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 p-4 text-slate-700">
-              <span className="inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-[var(--color-primary-light)] text-[10px] font-bold text-[var(--color-primary-dark)]">
-                {index + 1}
-              </span>
+              <span className="inline-flex h-2 min-w-[0.5rem] rounded-full bg-[var(--color-primary)]" />
               <span className="text-sm font-medium">{item}</span>
             </div>
           ))}
