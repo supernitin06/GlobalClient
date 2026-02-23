@@ -386,7 +386,7 @@ const Footer = () => {
       <footer
         style={{
           background: isDark
-            ? "linear-gradient(180deg, #080e1e 0%, #06091a 100%)"
+            ? "linear-gradient(180deg, #152e72ff 0%, #06091a 100%)"
             : "linear-gradient(180deg, #0f1e45 0%, #1e3d85 60%, #162d68 100%)",
           color: "#ffffff",
         }}
