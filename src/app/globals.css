@@ -982,6 +982,7 @@ button:hover,
 }
 
 @keyframes pgNavbarLogoFloat {
+
   0%,
   100% {
     transform: translateY(0);
@@ -993,6 +994,7 @@ button:hover,
 }
 
 @keyframes pgNavActivePulse {
+
   0%,
   100% {
     box-shadow: 0 8px 20px rgba(15, 23, 42, 0.14);
@@ -1018,13 +1020,30 @@ button:hover,
 @keyframes pgPageEnter {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(20px);
   }
 
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* --- Global Image Reveal (Zoom-in) --- */
+.pg-img-reveal {
+  opacity: 0;
+  transform: scale(0.9) translateY(10px);
+  filter: blur(4px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.pg-img-reveal.pg-img-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  filter: blur(0);
 }
 
 /* --- Home hero premium motion pack --- */
@@ -1506,6 +1525,7 @@ button:hover,
 }
 
 @keyframes pgHeroProgress {
+
   0%,
   100% {
     width: 66%;
@@ -1529,6 +1549,7 @@ button:hover,
 }
 
 @keyframes pgHeroCardFloat {
+
   0%,
   100% {
     transform: translateY(0px);
@@ -1540,6 +1561,7 @@ button:hover,
 }
 
 @keyframes pgHeroShine {
+
   0%,
   60% {
     transform: translateX(-120%);
@@ -1551,6 +1573,7 @@ button:hover,
 }
 
 @keyframes pgHeroAura {
+
   0%,
   100% {
     transform: translate3d(0, 0, 0) scale(1);

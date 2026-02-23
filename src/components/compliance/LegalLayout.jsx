@@ -71,34 +71,39 @@ const LegalLayout = ({ eyebrow, title, subtitle, image, highlights = [], section
         ))}
       </section>
 
-      <section className="mt-7 rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_10px_24px_rgba(15,23,42,0.05)]">
-        <h2 className="text-2xl font-bold">Legal Links</h2>
-        <div className="mt-4 flex flex-wrap gap-2.5">
-          {legalNavLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary-dark)]">
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      </section>
+      <section className="mt-7 rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_14px_32px_rgba(15,23,42,0.06)] sm:p-8">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex-1">
+            <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">Legal Center</p>
+            <h2 className="mt-2 text-3xl font-bold">Policy & Compliance Hub</h2>
+            <p className="mt-3 max-w-2xl text-[15px] leading-7 text-slate-600">
+              Access all our legal frameworks below. For specific clarifications regarding our clauses or to request project-specific compliance alignment, please reach out to our team.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2.5">
+              {legalNavLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-bold text-slate-700 transition hover:border-[var(--color-primary)] hover:bg-white hover:shadow-sm"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
-      <section className="mt-7 rounded-3xl border border-[rgba(13,110,253,0.28)] bg-[linear-gradient(120deg,rgba(13,110,253,0.08),rgba(255,193,7,0.12))] px-6 py-7 shadow-[0_14px_28px_rgba(15,23,42,0.08)] sm:px-8">
-        <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-600">Need Assistance</p>
-        <h2 className="mt-1 text-3xl font-bold">Need Clarification on Policies or Terms?</h2>
-        <p className="mt-2 max-w-3xl text-slate-700">
-          Contact Projects Global for policy clarifications, compliance alignment, and contractual process discussions.
-        </p>
-        <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/contact">
-            <Button variant="primary" size="md">
-              Contact Us
-            </Button>
-          </Link>
-          <Link href="/requestproposal">
-            <Button variant="outline" size="md">
-              Request Proposal
-            </Button>
-          </Link>
+          <div className="flex flex-wrap gap-3 lg:flex-col lg:w-56">
+            <Link href="/contact" className="w-full">
+              <Button variant="primary" size="md" className="w-full justify-center">
+                Contact Us
+              </Button>
+            </Link>
+            <Link href="/requestproposal" className="w-full">
+              <Button variant="outline" size="md" className="w-full justify-center">
+                Request Proposal
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </div>

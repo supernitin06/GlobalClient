@@ -390,7 +390,7 @@ const Footer = () => {
             : "linear-gradient(180deg, #0f1e45 0%, #1e3d85 60%, #162d68 100%)",
           color: "#ffffff",
         }}
-        className="relative mt-8 overflow-hidden"
+        className="relative mt-7 overflow-hidden"
       >
         {/* Subtle grain texture overlay */}
         <div

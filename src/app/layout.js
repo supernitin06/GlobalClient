@@ -4,6 +4,7 @@ import MainProvider from "@/providers/MainProvider";
 import Navbar from "@/components/layout/Navbar";
 import TopBar from "@/components/layout/TopBar";
 import Footer from "@/components/layout/Footer";
+import RequestCallWidget from "@/components/ui/RequestCallWidget";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +23,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <MainProvider>
           <TopBar />
@@ -30,9 +31,8 @@ export default function RootLayout({ children }) {
           <main className="pt-32 min-h-screen pg-page-enter">
             {children}
           </main>
-          <div className="mt-8">
-            <Footer />
-          </div>
+          <Footer />
+          <RequestCallWidget />
         </MainProvider>
       </body>
     </html>

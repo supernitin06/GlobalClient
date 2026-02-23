@@ -8,7 +8,9 @@ import HomePartnerCtaSection from "@/components/home/HomePartnerCtaSection";
 import HomeStatsSection from "@/components/home/HomeStatsSection";
 import HomeComplianceSection from "@/components/home/HomeComplianceSection";
 import HomeFaqSection from "@/components/home/HomeFaqSection";
+import HomeBlogSection from "@/components/home/HomeBlogSection";
 import {
+  blogs,
   campaigns,
   compliancePoints,
   faqItems,
@@ -31,10 +33,13 @@ const Home = () => {
       <HomeAboutServicesSection services={services} />
       <HomeWhyChooseSection whyChooseUs={whyChooseUs} />
       <HomeIndustriesProcessSection industries={industries} processSteps={processSteps} />
-      <HomeCampaignsSection campaigns={campaigns} />
-      <HomeComplianceSection compliancePoints={compliancePoints} />
+      {/* <HomeCampaignsSection campaigns={campaigns} /> */}
+      <HomeBlogSection blogs={blogs} />
+      {/* <HomeComplianceSection compliancePoints={compliancePoints} /> */}
       <HomeFaqSection faqItems={faqItems} />
+      <div className="mb-4">
       <HomePartnerCtaSection />
+      </div>
     </div>
   );
 };

@@ -69,23 +69,67 @@ export const compliancePoints = [
 
 export const faqItems = [
   {
-    question: "How quickly can a new campaign be launched?",
+    question: "What is Global Project (A Unit of BitMax Group)?",
     answer:
-      "After requirement validation and center allocation, onboarding can begin quickly with training and SOP alignment for controlled go-live.",
+      "Global Project is a specialized arm of the BitMax Group focused on high-precision service delivery. With over four years of successful operations in the USA and UK, we have expanded into the Indian market to bring international standards to a fast-evolving ecosystem. Our group includes Bitmax Business Solutions, Bitmax Technology, Global Projects (2021 Venture), and Shree Financial Services.",
   },
   {
-    question: "Do you provide voice and non-voice outsourcing models?",
-    answer:
-      "Yes. Projects Global supports inbound, outbound, chat, email, technical support, and back-office campaign models.",
+    question: "Is there any Up-Front amount?",
+    answer: "No, there is no up-front amount required to start working with us.",
   },
   {
-    question: "How is performance monitored?",
+    question: "What do you mean by Software fee and One time setup Fee?",
     answer:
-      "We follow SLA-based monitoring with quality audits, productivity tracking, attendance reports, and escalation reporting.",
+      "Software requirements for the projects are provided, and a security amount is charged. This is totally refundable after the agreement tenure is completed. BitMax handles all software and technical maintenance, including covering any penalties issued by the client due to software bugs or delays caused by our tools.",
   },
   {
-    question: "Can call centers partner for international projects?",
+    question: "What type of support will be provided by BitMax on Projects?",
     answer:
-      "Yes. Verified centers can register through Partner With Us and complete compliance checks for project consideration.",
+      "BitMax provides comprehensive 360-degree support, including premium software tools, dedicated technical assistance, and complete training sessions to ensure the execution and success of your project.",
+  },
+  {
+    question: "Is there any other charges Center need to pay?",
+    answer:
+      "Yes, centers are required to pay a royalty of 8%–10% on the monthly billing, as officially agreed upon at the time of signing the project agreement.",
+  },
+  {
+    question: "Is there any documentation provided for the refundable amount taken by BitMax?",
+    answer:
+      "Yes, we provide a formal legal document for the refundable amount. Additionally, as a security measure, a Post-Dated Cheque (PDC) is issued to the center to guarantee financial safety.",
+  },
+];
+
+export const blogs = [
+  {
+    id: 1,
+    title: "The Future of BPO: AI Integration & Human Touch",
+    description: "Discover how AI is revolutionizing the BPO industry while the human touch remains irreplaceable for complex problem-solving.",
+    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800",
+    author: "Global Insights Team",
+    date: "Feb 15, 2026",
+  },
+  {
+    id: 2,
+    title: "Scaling Your Start-up with Outsourced Support",
+    description: "Learn why outsourcing customer support is the strategic move for startups looking to scale rapidly without overhead costs.",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
+    author: "Strategy Corner",
+    date: "Feb 10, 2026",
+  },
+  {
+    id: 3,
+    title: "Data Security in Modern Outsourcing",
+    description: "Understanding the importance of zero-trust architecture and compliance in protecting sensitive customer data globally.",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800",
+    author: "Compliance Dept",
+    date: "Feb 05, 2026",
+  },
+  {
+    id: 4,
+    title: "Omnichannel Support: Meeting Customers Everywhere",
+    description: "Why providing a seamless experience across voice, chat, and email is no longer optional for premium brands.",
+    image: "https://images.unsplash.com/photo-1549923746-c502d488b3ea?auto=format&fit=crop&q=80&w=800",
+    author: "Customer Success",
+    date: "Jan 28, 2026",
   },
 ];
