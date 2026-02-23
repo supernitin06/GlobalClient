@@ -123,7 +123,7 @@ const ProjectsFeaturedTopSection = ({ opportunities = [], featuredLimit = 3 }) =
 
                   <div className="mt-3 grid grid-cols-2 gap-2.5">
                     <div className="rounded-xl border border-slate-200 bg-[linear-gradient(150deg,#f8fafc,#eef2f7)] px-3 py-2">
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-500">Seats Required</p>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-500">Seats Required/Shift</p>
                       <p className="text-base font-black text-slate-800">{project.seatsRequired}</p>
                     </div>
                     <div className="rounded-xl border border-slate-200 bg-[linear-gradient(150deg,#f8fafc,#eef2f7)] px-3 py-2">
@@ -133,7 +133,7 @@ const ProjectsFeaturedTopSection = ({ opportunities = [], featuredLimit = 3 }) =
                   </div>
 
                   <div className="mt-2.5 rounded-xl border border-slate-200 bg-[linear-gradient(150deg,#f8fafc,#eef2f7)] px-3 py-2">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-500">Last Activity</p>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-500">Refundable Security Deposit</p>
                     <p className="text-xs font-bold text-slate-700">{project.lastActivity}</p>
                   </div>
 
