@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Button from "@/components/ui/Button";
 import { useAppContext } from "@/context/AppContext";
@@ -51,9 +52,11 @@ const Navbar = () => {
           <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(15,23,42,0.45),transparent)]" />
 
           <Link href="/" className="flex items-center">
-            <img
-              src={logo.src}
+            <Image
+              src={logo}
               alt="Projects Global Logo"
+              priority
+              sizes="160px"
               className="h-10 w-auto"
             />
           </Link>

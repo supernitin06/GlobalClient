@@ -1,9 +1,10 @@
 ﻿'use client';
 
 import React from "react";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
-import engagementImage from "../../assets/image/happy-young-asia-businessmen-businesswoman-meeting-brainstorming-some-new-ideas-about-project.jpg";
-import reportingImage from "../../assets/image/carlos-muza-hpjSkU2UYSU-unsplash.webp";
+import engagementImage from "../../assets/image/GP-41.jpg";
+import reportingImage from "../../assets/image/GP-42.jpg";
 
 const ServicesModelsReportingSection = ({ engagementModels, reportingMonitoring }) => {
   return (
@@ -11,11 +12,11 @@ const ServicesModelsReportingSection = ({ engagementModels, reportingMonitoring 
       <ScrollReveal variant="up">
         <article className="h-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_10px_22px_rgba(15,23,42,0.06)]">
           <div className="relative h-36 border-b border-slate-200 bg-slate-100">
-            <img
-              src={engagementImage.src}
+            <Image
+              src={engagementImage}
               alt="Engagement models"
-              loading="lazy"
-              decoding="async"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" />
@@ -40,11 +41,11 @@ const ServicesModelsReportingSection = ({ engagementModels, reportingMonitoring 
       <ScrollReveal variant="up" delay={90}>
         <article className="h-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_10px_22px_rgba(15,23,42,0.06)]">
           <div className="relative h-36 border-b border-slate-200 bg-slate-100">
-            <img
-              src={reportingImage.src}
+            <Image
+              src={reportingImage}
               alt="Reporting and monitoring"
-              loading="lazy"
-              decoding="async"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" />

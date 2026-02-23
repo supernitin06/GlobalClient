@@ -2,13 +2,14 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Button from "@/components/ui/Button";
 
-import heroImage1 from "../../assets/image/call-center-3614379_1920.jpg";
-import heroImage2 from "../../assets/image/customer-service-concept-illustration.webp";
-import heroImage3 from "../../assets/image/top-view-messy-office-workspace-with-tablet.jpg";
-import heroImage4 from "../../assets/image/day-office-travel-agency.jpg";
+import heroImage1 from "../../assets/image/Hero1.jpg";
+import heroImage2 from "../../assets/image/Hero2.jpg";
+import heroImage3 from "../../assets/image/Hero3.jpg";
+import heroImage4 from "../../assets/image/HERO4.jpg";
 
 const defaultChannels = [
   "Inbound Support",
@@ -94,10 +95,12 @@ const HomeHeroSection = ({
             key={slide.tag}
             className={`pg-hero-bg-slide ${activeSlide === index ? "is-active" : ""}`}
           >
-            <img
-              src={slide.image.src}
+            <Image
+              src={slide.image}
               alt={slide.tag}
-              loading={index === 0 ? "eager" : "lazy"}
+              fill
+              priority={index === 0}
+              sizes="100vw"
               className="h-full w-full object-cover"
             />
           </div>

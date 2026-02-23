@@ -1,8 +1,9 @@
 ﻿'use client';
 
 import React from "react";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
-import projectsImg from "../../assets/image/happy-young-asia-businessmen-businesswoman-meeting-brainstorming-some-new-ideas-about-project.jpg";
+import projectsImg from "../../assets/image/GP13.jpg";
 
 const ProjectsHeroSection = () => {
   return (
@@ -25,7 +26,14 @@ const ProjectsHeroSection = () => {
           </div>
 
           <div className="relative h-[320px] overflow-hidden bg-slate-100 lg:h-[390px] flex items-center justify-center">
-            <img src={projectsImg.src} alt="Projects & Campaigns" className="h-full w-full object-cover" />
+            <Image
+              src={projectsImg}
+              alt="Projects & Campaigns"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 46vw"
+              className="h-full w-full object-cover"
+            />
             <div className="absolute bottom-4 right-4 rounded-xl border border-white/40 bg-white/92 px-4 py-3 shadow-lg backdrop-blur-sm">
               <p className="text-[11px] font-bold uppercase tracking-wide text-[var(--color-primary-dark)]">Execution Focus</p>
               <p className="mt-1 text-sm font-semibold text-slate-700">Performance + Scalability + Governance</p>

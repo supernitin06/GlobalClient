@@ -2,9 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
 import Button from "../ui/Button";
-import ctaImg from "../../assets/image/customer-service-concept-illustration.webp";
+import ctaImg from "../../assets/image/GP9.jpg";
 
 const ServicesClosingCtaSection = () => {
   return (
@@ -36,9 +37,12 @@ const ServicesClosingCtaSection = () => {
           </div>
 
           <div className="relative min-h-[170px] border-t border-slate-200 md:border-l md:border-t-0 flex items-center justify-center bg-[linear-gradient(145deg,rgba(248,250,252,0.78),rgba(255,255,255,0.9))]">
-            <img
-              src={ctaImg.src}
+            <Image
+              src={ctaImg}
               alt="Activate Outsourcing"
+              width={520}
+              height={360}
+              sizes="(max-width: 768px) 92vw, 36vw"
               className="max-h-[240px] w-auto object-contain p-3 md:max-h-[250px]"
             />
           </div>

@@ -1,13 +1,13 @@
-﻿import telecomImage from "../../assets/image/what-is-call-center.webp";
-import ecommerceImage from "../../assets/image/digital-marketing-1497211_1920.jpg";
-import bankingImage from "../../assets/image/carlos-muza-hpjSkU2UYSU-unsplash.webp";
-import healthcareImage from "../../assets/image/ekyc.webp";
-import travelImage from "../../assets/image/inbound1.webp";
-import logisticsImage from "../../assets/image/call-center-3614379_1920.jpg";
-import saasImage from "../../assets/image/customer-service-concept-illustration.webp";
-import educationImage from "../../assets/image/call-center-2944063_1920.jpg";
-import insuranceImage from "../../assets/image/onur-binay-Uw_8vSroCSc-unsplash.jpg";
-import customImage from "../../assets/image/firmbee-com-gcsNOsPEXfs-unsplash.jpg";
+import telecomImage from "../../assets/image/GP17.jpg";
+import ecommerceImage from "../../assets/image/GP18.jpg";
+import bankingImage from "../../assets/image/GP19.jpg";
+import healthcareImage from "../../assets/image/GP20.jpg";
+import travelImage from "../../assets/image/GP-20.jpg";
+import logisticsImage from "../../assets/image/GP-21.jpg";
+import saasImage from "../../assets/image/GP-22.jpg";
+import educationImage from "../../assets/image/GP-23.jpg";
+import insuranceImage from "../../assets/image/GP-24.jpg";
+import customImage from "../../assets/image/GP-25.jpg";
 
 export const industriesData = [
   { title: "Telecom & ISP", image: telecomImage },
@@ -21,3 +21,4 @@ export const industriesData = [
   { title: "Insurance Support", image: insuranceImage },
   { title: "Custom Industry Support", image: customImage },
 ];
+

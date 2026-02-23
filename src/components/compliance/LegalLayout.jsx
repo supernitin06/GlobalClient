@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Button from "../ui/Button";
 
 const legalNavLinks = [
@@ -34,7 +35,13 @@ const LegalLayout = ({ eyebrow, title, subtitle, image, highlights = [], section
 
           <div className="relative h-64 overflow-hidden bg-slate-100 lg:h-full flex items-center justify-center">
             {image ? (
-              <img src={image} alt={title} loading="lazy" className="h-full w-full object-cover" />
+              <Image
+                src={image}
+                alt={title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="h-full w-full object-cover"
+              />
             ) : (
               <div className="text-slate-400 italic text-sm">Legal Header Image</div>
             )}

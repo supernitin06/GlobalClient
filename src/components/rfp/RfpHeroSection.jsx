@@ -1,8 +1,9 @@
 ﻿'use client';
 
 import React from "react";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
-import rfpImg from "../../assets/image/data-information-report-statistics-strategy-concept.jpg";
+import rfpImg from "../../assets/image/GP12.jpg";
 
 const RfpHeroSection = () => {
   return (
@@ -25,7 +26,14 @@ const RfpHeroSection = () => {
             </div>
           </div>
           <div className="relative h-56 lg:h-full lg:min-h-[320px] flex items-center justify-center bg-slate-100">
-            <img src={rfpImg.src} alt="Request a Proposal" className="h-full w-full object-cover" />
+            <Image
+              src={rfpImg}
+              alt="Request a Proposal"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 46vw"
+              className="h-full w-full object-cover"
+            />
             <div className="absolute bottom-4 right-4 rounded-xl border border-white/40 bg-white/90 px-4 py-3 backdrop-blur-sm">
               <p className="text-[11px] font-bold uppercase tracking-wide text-[var(--color-primary-dark)]">Response Timeline</p>
               <p className="mt-1 text-sm font-semibold text-slate-700">24-48 Business Hours</p>

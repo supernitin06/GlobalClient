@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import logo from "../../assets/image/logo/yello.png";
 import Button from "@/components/ui/Button";
 
@@ -61,7 +62,7 @@ const Footer = () => {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-5 py-10 lg:grid-cols-12">
         <article className="pg-footer-card rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-[0_14px_30px_rgba(15,23,42,0.08)] lg:col-span-4">
           <div className="flex items-start gap-4">
-            <img src={logo.src} alt="Projects Global Logo" className="h-12 w-auto" />
+            <Image src={logo} alt="Projects Global Logo" width={200} height={48} className="h-12 w-auto" />
             <div>
               <h3 className="text-xl font-bold">Projects Global</h3>
               <p className="text-xs font-medium uppercase tracking-wide text-slate-600">Global Outsourcing Excellence</p>

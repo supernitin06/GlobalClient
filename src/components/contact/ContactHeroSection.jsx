@@ -1,8 +1,9 @@
 ﻿'use client';
 
 import React from "react";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
-import contactImg from "../../assets/image/woman-working-call-center-talking-with-clients-using-headphones-microphone.jpg";
+import contactImg from "../../assets/image/GP11.jpg";
 
 const ContactHeroSection = () => {
   return (
@@ -14,7 +15,14 @@ const ContactHeroSection = () => {
             <h1 className="pg-page-hero-title mt-2 text-4xl font-bold">Let&rsquo;s Discuss Your Outsourcing Requirements</h1>
           </div>
           <div className="relative h-52 lg:h-full flex items-center justify-center bg-slate-100">
-            <img src={contactImg.src} alt="Contact Us" className="h-full w-full object-cover" />
+            <Image
+              src={contactImg}
+              alt="Contact Us"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
       </section>

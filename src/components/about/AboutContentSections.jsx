@@ -1,8 +1,9 @@
 'use client';
 
 import React from "react";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
-import approachImg from "../../assets/image/vecteezy_teamwork-data-analysis-and-business-strategy-a_56410899.png";
+import approachImg from "../../assets/image/GP10.jpg";
 
 const AboutContentSections = ({ boxClass, whatWeDo, whyProjectsGlobal, approach, compliance, industries }) => {
   return (
@@ -111,7 +112,13 @@ const AboutContentSections = ({ boxClass, whatWeDo, whyProjectsGlobal, approach,
               </div>
             </div>
             <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-[linear-gradient(160deg,rgba(15,23,42,0.06),rgba(255,193,7,0.12))] p-3 flex items-center justify-center min-h-[250px]">
-              <img src={approachImg.src} alt="Our Outsourcing Approach" className="h-full w-full object-contain" />
+              <Image
+                src={approachImg}
+                alt="Our Outsourcing Approach"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="h-full w-full object-contain"
+              />
               <div className="absolute bottom-5 left-5 right-5 rounded-xl border border-slate-200 bg-white/95 px-4 py-3 backdrop-blur">
                 <p className="text-[11px] font-bold uppercase tracking-wide text-[var(--color-primary-dark)]">Execution Flow</p>
                 <p className="mt-1 text-sm text-slate-700">Requirement | Center Allocation | Training | Go-Live | Optimisation</p>

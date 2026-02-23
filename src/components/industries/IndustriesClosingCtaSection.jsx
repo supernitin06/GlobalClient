@@ -2,9 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
 import Button from "../ui/Button";
-import ctaImg from "../../assets/image/customer-service-concept-illustration.webp";
+import ctaImg from "../../assets/image/GP-30.jpg";
 
 const IndustriesClosingCtaSection = () => {
   return (
@@ -39,7 +40,13 @@ const IndustriesClosingCtaSection = () => {
           </div>
 
           <div className="relative min-h-[160px] border-t border-slate-200 md:border-l md:border-t-0 flex items-center justify-center bg-slate-50/50">
-            <img src={ctaImg.src} alt="Industry Support" className="max-h-[250px] w-auto object-contain p-2" />
+            <Image
+              src={ctaImg}
+              alt="Industry Support"
+              fill
+              sizes="(max-width: 768px) 100vw, 36vw"
+              className="max-h-[250px] w-auto object-contain p-2"
+            />
           </div>
         </div>
       </section>

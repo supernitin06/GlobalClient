@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
-import aboutImg from "../../assets/image/happy-young-asia-businessmen-businesswoman-meeting-brainstorming-some-new-ideas-about-project.jpg";
+import aboutImg from "../../assets/image/GP-45.jpg";
 
 const AboutIntroSection = ({ intro }) => {
   const headingWords = intro.title.split(" ");
@@ -55,9 +56,12 @@ const AboutIntroSection = ({ intro }) => {
 
       <ScrollReveal variant="zoom" delay={120} className="h-full">
         <article className="relative h-full min-h-[500px] overflow-hidden rounded-[2rem] border border-slate-200/90 bg-white shadow-[0_22px_46px_rgba(15,23,42,0.14)]">
-          <img
-            src={aboutImg.src}
+          <Image
+            src={aboutImg}
             alt="About Projects Global"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent" />

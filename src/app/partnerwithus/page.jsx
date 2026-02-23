@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState } from "react";
+import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import heroImage from "@/assets/image/call-center-3614379_1920.jpg";
+import heroImage from "@/assets/image/GP-32.jpg";
 import Button from "@/components/ui/Button";
 
 const whyPartner = [
@@ -45,8 +46,24 @@ const PartnerWithUs = () => {
         <div className="mx-auto max-w-7xl px-4 pt-2 pb-6 sm:px-6 lg:px-8">
             <ScrollReveal variant="up">
                 <section className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_30px_rgba(15,23,42,0.08)]">
-                    <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
-                        <div className="border-b border-slate-200 bg-[linear-gradient(120deg,rgba(13,110,253,0.08),rgba(255,193,7,0.12))] px-7 py-7 lg:border-b-0 lg:border-r">
+                    <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
+                        <div className="relative h-52 lg:h-full bg-slate-200 flex items-center justify-center">
+                            {heroImage ? (
+                                <Image
+                                    src={heroImage}
+                                    alt="Partner call center operations"
+                                    fill
+                                    priority
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                    className="hero-float h-full w-full object-cover"
+                                />
+                            ) : (
+                                <div className="text-slate-400 font-medium italic">Hero Image Placeholder</div>
+                            )}
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-transparent to-transparent" />
+                        </div>
+
+                        <div className="border-b border-slate-200 bg-[linear-gradient(120deg,rgba(13,110,253,0.08),rgba(255,193,7,0.12))] px-7 py-7 lg:border-b-0 lg:border-l">
                             <p className="text-sm font-semibold text-[var(--color-primary)]">Partner With Us</p>
                             <h1 className="pg-page-hero-title mt-2 text-4xl font-bold">Join Our Global Outsourcing Partner Network</h1>
                             <p className="pg-page-hero-copy mt-4 max-w-xl text-slate-700">
@@ -58,14 +75,6 @@ const PartnerWithUs = () => {
                                 <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700">Fast Deployment</span>
                                 <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700">SLA Framework</span>
                             </div>
-                        </div>
-                        <div className="relative h-52 lg:h-full bg-slate-200 flex items-center justify-center">
-                            {heroImage ? (
-                                <img src={heroImage.src} alt="Partner call center operations" loading="eager" fetchPriority="high" className="hero-float h-full w-full object-cover" />
-                            ) : (
-                                <div className="text-slate-400 font-medium italic">Hero Image Placeholder</div>
-                            )}
-                            <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-transparent to-transparent" />
                         </div>
                     </div>
                 </section>

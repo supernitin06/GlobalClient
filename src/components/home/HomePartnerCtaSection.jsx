@@ -2,10 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
 import Button from "../ui/Button";
 
-import partnerImage from "../../assets/image/call-center-2944063_1920.jpg";
+import partnerImage from "../../assets/image/GP-31.jpg";
 
 const ctaHighlights = [
   "Dedicated onboarding within 48 hours",
@@ -26,10 +27,11 @@ const HomePartnerCtaSection = () => {
         <article className="flex h-full min-h-[460px] flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_30px_rgba(15,23,42,0.08)]">
           <div className="relative h-44 border-b border-slate-200 bg-slate-100 flex items-center justify-center">
             {partnerImage ? (
-              <img
-                src={partnerImage.src}
+              <Image
+                src={partnerImage}
                 alt="Call center partner network"
-                loading="lazy"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="h-full w-full object-cover"
               />
             ) : (

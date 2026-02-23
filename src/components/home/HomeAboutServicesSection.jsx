@@ -2,11 +2,12 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
 import Button from "../ui/Button";
 
-import serviceImage from "../../assets/image/customer-service-concept-illustration.webp";
-import aboutImage from "../../assets/image/call-center-2944063_1920.jpg";
+import serviceImage from "../../assets/image/GP-28.jpg";
+import aboutImage from "../../assets/image/GP-29.jpg";
 
 const HomeAboutServicesSection = ({ services }) => {
   return (
@@ -19,13 +20,14 @@ const HomeAboutServicesSection = ({ services }) => {
 
           <div className="mt-5 flex flex-1 flex-col">
             <div>
-              <div className="mb-5 overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-50 p-1.5 aspect-video flex items-center justify-center">
+              <div className="relative mb-5 aspect-video overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-50 p-1.5">
                 {aboutImage ? (
-                  <img
-                    src={aboutImage.src}
+                  <Image
+                    src={aboutImage}
                     alt="About Projects Global"
-                    loading="lazy"
-                    className="h-full w-full rounded-xl object-cover object-center"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 48vw"
+                    className="rounded-xl object-cover object-center"
                   />
                 ) : (
                   <div className="text-slate-400 italic text-sm">About Image Placeholder</div>
@@ -86,11 +88,12 @@ const HomeAboutServicesSection = ({ services }) => {
           <article className="pg-services-pane flex h-full flex-col rounded-3xl p-5 lg:p-6">
             <div className="relative h-[260px] bg-slate-100 flex items-center justify-center rounded-2xl border border-slate-200 sm:h-[330px]">
             {serviceImage ? (
-              <img
-                src={serviceImage.src}
+              <Image
+                src={serviceImage}
                 alt="Our outsourcing services"
-                loading="lazy"
-                className="h-full w-full object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 48vw"
+                className="object-cover"
               />
             ) : (
               <div className="text-slate-400 italic text-sm">Service Image Placeholder</div>
