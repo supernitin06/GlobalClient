@@ -6,7 +6,7 @@ import { contactInfo } from "@/components/contact/contactData";
 
 const Contact = () => {
     return (
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 pt-2 pb-6 sm:px-6 lg:px-8">
             <ContactHeroSection />
             <section className="mt-6 grid gap-6 lg:grid-cols-2">
                 <ContactInfoSection info={contactInfo} />

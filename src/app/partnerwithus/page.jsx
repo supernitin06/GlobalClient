@@ -40,14 +40,14 @@ const PartnerWithUs = () => {
     };
 
     return (
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 pt-2 pb-6 sm:px-6 lg:px-8">
             <ScrollReveal variant="up">
                 <section className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_30px_rgba(15,23,42,0.08)]">
                     <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
                         <div className="border-b border-slate-200 bg-[linear-gradient(120deg,rgba(13,110,253,0.08),rgba(255,193,7,0.12))] px-7 py-7 lg:border-b-0 lg:border-r">
                             <p className="text-sm font-semibold text-[var(--color-primary)]">Partner With Us</p>
-                            <h1 className="mt-2 text-4xl font-bold">Join Our Global Outsourcing Partner Network</h1>
-                            <p className="mt-4 max-w-xl text-slate-700">
+                            <h1 className="pg-page-hero-title mt-2 text-4xl font-bold">Join Our Global Outsourcing Partner Network</h1>
+                            <p className="pg-page-hero-copy mt-4 max-w-xl text-slate-700">
                                 Collaborate with Projects Global to access verified campaign opportunities, structured go-live support,
                                 and long-term outsourcing growth.
                             </p>

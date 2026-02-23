@@ -85,7 +85,7 @@ const HomeHeroSection = ({
 
   return (
     <section
-      className={`pg-hero-premium relative overflow-hidden border-b border-slate-200 bg-white py-6 md:py-7 lg:py-7 ${isHeroPop ? "is-3d-pop" : ""}`}
+      className={`pg-hero-premium relative -mt-36 overflow-hidden border-b border-slate-200 bg-white pt-[12.25rem] pb-6 md:pt-[12.5rem] md:pb-7 lg:pt-[12.8rem] lg:pb-8 ${isHeroPop ? "is-3d-pop" : ""}`}
       onClick={onHeroPop}
     >
       <div className="pg-hero-bg-track absolute inset-0">
@@ -108,7 +108,7 @@ const HomeHeroSection = ({
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_72%,rgba(250,204,21,0.22),transparent_36%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(112deg,rgba(15,23,42,0.11),transparent_32%,rgba(255,193,7,0.1))]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_8%,rgba(15,23,42,0.12),transparent_32%)]" />
-      <div className="absolute -left-24 top-14 h-72 w-72 rounded-full bg-[rgba(15,23,42,0.2)] blur-3xl" />
+      <div className="absolute -left-24 top-6 h-72 w-72 rounded-full bg-[rgba(15,23,42,0.2)] blur-3xl" />
       <div className="absolute -right-24 bottom-4 h-80 w-80 rounded-full bg-[rgba(255,193,7,0.16)] blur-3xl" />
 
       <div className="pg-hero-content-wrap relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

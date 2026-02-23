@@ -10,17 +10,16 @@ import aboutImage from "../../assets/image/call-center-2944063_1920.jpg";
 
 const HomeAboutServicesSection = ({ services }) => {
   return (
-    <section className="mx-auto mt-14 grid max-w-7xl items-start gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-      <ScrollReveal variant="up">
-        <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_30px_rgba(15,23,42,0.08)]">
-          <div className="border-b border-slate-200 bg-[linear-gradient(120deg,rgba(15,23,42,0.09),rgba(255,193,7,0.12))] px-7 py-5">
+    <section className="mx-auto mt-14 max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="pg-about-services-shell grid gap-6 overflow-hidden rounded-[2rem] border border-slate-200/80 p-5 lg:grid-cols-2 lg:p-6">
+        <ScrollReveal variant="up" className="h-full">
+          <article className="pg-about-pane flex h-full flex-col rounded-3xl p-6 lg:p-7">
             <p className="text-xs font-bold uppercase tracking-wide text-slate-600">About Preview Section</p>
-            <h2 className="mt-2 text-3xl font-bold text-slate-900">Who We Are</h2>
-          </div>
+            <h2 className="mt-2 text-4xl font-bold text-slate-900">Who We Are</h2>
 
-          <div className="flex flex-1 flex-col p-7">
+          <div className="mt-5 flex flex-1 flex-col">
             <div>
-              <div className="mb-5 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-1.5 aspect-video flex items-center justify-center">
+              <div className="mb-5 overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-50 p-1.5 aspect-video flex items-center justify-center">
                 {aboutImage ? (
                   <img
                     src={aboutImage.src}
@@ -32,11 +31,11 @@ const HomeAboutServicesSection = ({ services }) => {
                   <div className="text-slate-400 italic text-sm">About Image Placeholder</div>
                 )}
               </div>
-              <p className="text-slate-600 text-justify">
+              <p className="text-lg leading-8 text-slate-700">
                 Projects Global helps businesses run reliable voice and non-voice support operations with trained teams,
                 verified partner centers, and SLA-based delivery models.
               </p>
-              <p className="mt-3 text-slate-600 text-justify">
+              <p className="mt-3 text-lg leading-8 text-slate-700">
                 We focus on faster deployment, better customer outcomes, and measurable performance through compliance,
                 process control, and transparent reporting.
               </p>
@@ -46,24 +45,24 @@ const HomeAboutServicesSection = ({ services }) => {
                   Quick Highlights
                 </p>
                 <div className="mt-2.5 flex flex-wrap gap-2">
-                  <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold text-slate-700">
+                  <span className="rounded-full border border-slate-200 bg-white/80 px-2.5 py-1 text-[11px] font-semibold text-slate-700">
                     SLA-Based Delivery
                   </span>
-                  <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold text-slate-700">
+                  <span className="rounded-full border border-slate-200 bg-white/80 px-2.5 py-1 text-[11px] font-semibold text-slate-700">
                     Verified Teams
                   </span>
-                  <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold text-slate-700">
+                  <span className="rounded-full border border-slate-200 bg-white/80 px-2.5 py-1 text-[11px] font-semibold text-slate-700">
                     Compliance Ready
                   </span>
                 </div>
               </div>
 
               <div className="mt-4 grid grid-cols-2 gap-2">
-                <div className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2">
+                <div className="rounded-xl border border-slate-200 bg-white/80 px-3 py-2">
                   <p className="text-lg font-extrabold text-[var(--color-primary)]">24/7</p>
                   <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Support Coverage</p>
                 </div>
-                <div className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2">
+                <div className="rounded-xl border border-slate-200 bg-white/80 px-3 py-2">
                   <p className="text-lg font-extrabold text-[var(--color-primary)]">98%</p>
                   <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">SLA Alignment</p>
                 </div>
@@ -80,12 +79,12 @@ const HomeAboutServicesSection = ({ services }) => {
               <Button variant="outline" size="md">Learn More</Button>
             </Link>
           </div>
-        </article>
-      </ScrollReveal>
+          </article>
+        </ScrollReveal>
 
-      <ScrollReveal variant="up" delay={120}>
-        <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_30px_rgba(15,23,42,0.08)]">
-          <div className="relative h-[210px] bg-slate-100 flex items-center justify-center border-b border-slate-200 sm:h-[450px]">
+        <ScrollReveal variant="up" delay={120} className="h-full">
+          <article className="pg-services-pane flex h-full flex-col rounded-3xl p-5 lg:p-6">
+            <div className="relative h-[260px] bg-slate-100 flex items-center justify-center rounded-2xl border border-slate-200 sm:h-[330px]">
             {serviceImage ? (
               <img
                 src={serviceImage.src}
@@ -96,13 +95,13 @@ const HomeAboutServicesSection = ({ services }) => {
             ) : (
               <div className="text-slate-400 italic text-sm">Service Image Placeholder</div>
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
-            <p className="absolute bottom-4 left-5 rounded-full bg-white/85 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[var(--color-primary-dark)]">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
+            <p className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[var(--color-primary-dark)]">
               Services Preview Section
             </p>
           </div>
 
-          <div className="flex flex-1 flex-col p-7">
+          <div className="mt-5 flex flex-1 flex-col">
             <h2 className="text-3xl font-bold text-slate-900">Our Outsourcing Services</h2>
             <div className="mt-4 grid flex-1 gap-2">
               {services.map((item, index) => (
@@ -124,8 +123,9 @@ const HomeAboutServicesSection = ({ services }) => {
               <Button variant="primary" size="md">View Services</Button>
             </Link>
           </div>
-        </article>
-      </ScrollReveal>
+          </article>
+        </ScrollReveal>
+      </div>
     </section>
   );
 };

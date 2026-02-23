@@ -41,15 +41,12 @@ const HomeWhyChooseSection = ({ whyChooseUs }) => {
                 style={{ animationDelay: `${index * 55}ms` }}
                 className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-gradient-to-br from-slate-50 to-white p-5 transition-all duration-300 hover:-translate-y-1.5 hover:border-[rgba(30,61,133,0.28)] hover:shadow-[0_12px_28px_rgba(15,23,42,0.1)]"
               >
-                {/* Left accent bar */}
-                <span className="absolute left-0 top-0 h-full w-1 bg-[linear-gradient(180deg,var(--color-primary),transparent)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-                <div className="mb-3 flex items-center gap-3">
-                  {/* Icon circle */}
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[rgba(30,61,133,0.08)] text-[var(--color-primary)] transition-all duration-300 group-hover:bg-[var(--color-primary)] group-hover:text-white group-hover:shadow-md">
-                    {REASONS_ICONS[index % REASONS_ICONS.length]}
+                <span className="pointer-events-none absolute -right-6 -top-6 h-14 w-14 rounded-full bg-[rgba(13,110,253,0.08)] transition-transform duration-300 group-hover:scale-110" />
+                <div className="relative mb-3 flex items-center gap-2.5">
+                  <span className="inline-flex h-8 min-w-[2.1rem] items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--color-primary),var(--color-primary-dark))] px-2 text-[11px] font-extrabold text-white shadow-[0_8px_16px_rgba(15,23,42,0.24)]">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-xs font-bold text-slate-300">0{index + 1}</span>
+                  <span className="h-px flex-1 bg-[linear-gradient(90deg,rgba(13,110,253,0.35),transparent)]" />
                 </div>
                 <p className="relative text-sm font-semibold leading-6 text-slate-700 group-hover:text-slate-900">
                   {item}
