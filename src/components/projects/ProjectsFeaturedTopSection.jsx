@@ -49,7 +49,7 @@ const ProjectsFeaturedTopSection = ({ opportunities = [], featuredLimit = 3 }) =
 
   return (
     <>
-      <section className="pg-featured-shell relative mt-6 overflow-hidden rounded-[1.8rem] border border-slate-200/90 bg-[linear-gradient(145deg,#f8fbff_0%,#eef4ff_48%,#ffffff_100%)] p-4 shadow-[0_18px_40px_rgba(15,23,42,0.11)] sm:p-6">
+      <section className="pg-featured-shell relative mt-10 md:mt-16 lg:mt-24 overflow-hidden rounded-[1.8rem] border border-slate-200/90 bg-[linear-gradient(145deg,#f8fbff_0%,#eef4ff_48%,#ffffff_100%)] p-4 shadow-[0_18px_40px_rgba(15,23,42,0.11)] sm:p-6">
         <div className="pointer-events-none absolute -left-10 top-0 h-36 w-36 rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.23)_0%,rgba(56,189,248,0)_72%)]" />
         <div className="pointer-events-none absolute -right-12 bottom-0 h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.2)_0%,rgba(245,158,11,0)_70%)]" />
 

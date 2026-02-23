@@ -72,32 +72,36 @@ const ProjectDetailFormModal = ({ open, onClose, project }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[120] flex items-center justify-center bg-slate-950/70 p-3 backdrop-blur-[3px]">
-      <div className="absolute inset-0" onClick={onClose} aria-hidden="true" />
+    <div className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6 lg:p-8">
+      {/* Backdrop */}
+      <div className="pg-project-modal-mask absolute inset-0" onClick={onClose} aria-hidden="true" />
 
+      {/* Modal Surface */}
       <div
         ref={panelRef}
         tabIndex={-1}
-        className="pg-project-modal-enter relative z-10 max-h-[94vh] w-full max-w-5xl overflow-hidden rounded-2xl border border-slate-200 bg-[linear-gradient(160deg,#ffffff,rgba(246,250,255,0.96))] shadow-[0_28px_72px_rgba(2,6,23,0.38)] focus:outline-none"
+        className="pg-project-modal-enter relative z-10 flex max-h-full w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-slate-200 bg-[linear-gradient(160deg,#ffffff,rgba(246,250,255,0.96))] shadow-[0_32px_80px_rgba(2,6,23,0.45)] focus:outline-none"
       >
-        <div className="flex items-center justify-between border-b border-slate-200 bg-[linear-gradient(120deg,rgba(30,61,133,0.1),rgba(250,204,21,0.18))] px-4 py-3 sm:px-6">
+        {/* Header */}
+        <div className="flex shrink-0 items-center justify-between border-b border-slate-200 bg-[linear-gradient(120deg,rgba(30,61,133,0.08),rgba(250,204,21,0.14))] px-4 py-3 sm:px-6">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-600">Apply For This Project</p>
-            <h3 className="bg-gradient-to-r from-[var(--color-primary-dark)] to-[#4f93ff] bg-clip-text text-lg font-extrabold text-transparent sm:text-xl">
+            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">Project Verification Form</p>
+            <h3 className="bg-gradient-to-r from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[#3b82f6] bg-clip-text text-base font-black text-transparent sm:text-lg">
               {title}
             </h3>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 transition hover:bg-slate-100"
+            className="group inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm transition-all hover:border-slate-300 hover:bg-slate-50 active:scale-90"
             aria-label="Close"
           >
-            <span className="text-xl leading-none">x</span>
+            <span className="text-lg leading-none text-slate-400 group-hover:text-slate-600 transition-colors">×</span>
           </button>
         </div>
 
-        <div className="max-h-[calc(94vh-76px)] overflow-y-auto p-4 sm:p-6">
+        {/* Form Body */}
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 overscroll-contain">
           {submitted && (
             <div className="mb-4 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
               Form submitted successfully. Our team will contact you shortly.

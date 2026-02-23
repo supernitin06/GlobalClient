@@ -13,7 +13,7 @@ import logo from "../../assets/image/logo/yello.png";
 
 const HomeBlogSection = ({ blogs }) => {
     return (
-        <section className="relative overflow-hidden py-24 bg-slate-50/50">
+        <section className="relative overflow-hidden mt-10 md:mt-16 lg:mt-24 py-10 md:py-16 lg:py-20 bg-slate-50/50">
             {/* Background Decorative Overlay */}
             <div className="absolute inset-0 pointer-events-none opacity-[0.03] flex items-center justify-center overflow-hidden">
                 <FaGlobe className="text-[600px] text-slate-900 rotate-12" />

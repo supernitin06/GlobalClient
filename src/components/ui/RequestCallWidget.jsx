@@ -6,12 +6,23 @@ import { FaPhoneVolume } from "react-icons/fa";
 import Link from "next/link";
 
 const RequestCallWidget = () => {
+    const [constraints, setConstraints] = React.useState({ left: 0, right: 0, top: 0, bottom: 0 });
+
+    React.useEffect(() => {
+        setConstraints({
+            left: -window.innerWidth + 100,
+            right: 0,
+            top: -window.innerHeight + 100,
+            bottom: 0
+        });
+    }, []);
+
     return (
         <div className="fixed bottom-8 right-8 z-[120]">
             <Link href="/contact">
                 <motion.div
                     drag
-                    dragConstraints={{ left: -window?.innerWidth + 100, right: 0, top: -window?.innerHeight + 100, bottom: 0 }}
+                    dragConstraints={constraints}
                     dragElastic={0.1}
                     whileDrag={{ scale: 1.1, cursor: "grabbing" }}
                     initial={{ scale: 0, opacity: 0 }}

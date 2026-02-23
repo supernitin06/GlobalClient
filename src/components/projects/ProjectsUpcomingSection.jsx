@@ -33,7 +33,7 @@ const ProjectsUpcomingSection = ({ projects = [] }) => {
   }, [projects, activeTab]);
 
   return (
-    <section className="mt-6 rounded-2xl border border-slate-200 bg-[linear-gradient(140deg,#ffffff,rgba(245,249,255,0.96))] p-4 shadow-[0_12px_30px_rgba(15,23,42,0.08)] sm:p-6">
+    <section className="mt-10 md:mt-16 lg:mt-24 rounded-2xl border border-slate-200 bg-[linear-gradient(140deg,#ffffff,rgba(245,249,255,0.96))] p-4 shadow-[0_12px_30px_rgba(15,23,42,0.08)] sm:p-6">
       <ScrollReveal variant="up">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold sm:text-4xl">
@@ -56,11 +56,10 @@ const ProjectsUpcomingSection = ({ projects = [] }) => {
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id)}
-                className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.08em] transition ${
-                  isActive
+                className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.08em] transition ${isActive
                     ? "bg-[linear-gradient(135deg,var(--color-primary),#3b82f6)] text-white shadow-[0_8px_18px_rgba(30,61,133,0.28)]"
                     : "border border-slate-300 bg-white text-slate-600 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
-                }`}
+                  }`}
               >
                 {tab.label}
               </button>

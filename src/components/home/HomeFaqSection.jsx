@@ -9,7 +9,7 @@ const HomeFaqSection = ({ faqItems = [] }) => {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section className="pg-container mt-6">
+    <section className="pg-container mt-10 md:mt-16 lg:mt-24">
       <ScrollReveal variant="up">
         <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_42px_rgba(15,23,42,0.08)]">
           {/* Header */}

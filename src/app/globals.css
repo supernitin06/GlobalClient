@@ -1776,6 +1776,7 @@ button:hover,
   padding: 1px;
   background: linear-gradient(130deg, rgba(30, 61, 133, 0.5), rgba(59, 130, 246, 0.45), rgba(245, 158, 11, 0.45));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
@@ -1863,6 +1864,7 @@ button:hover,
   padding: 1px;
   background: linear-gradient(135deg, rgba(30, 61, 133, 0.36), rgba(59, 130, 246, 0.34), rgba(245, 158, 11, 0.34));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
@@ -1926,6 +1928,7 @@ button:hover,
 }
 
 @keyframes pgProjectBadgeSweep {
+
   0%,
   100% {
     transform: translateX(0) skewX(-18deg);
@@ -1943,6 +1946,7 @@ button:hover,
 }
 
 @keyframes pgAvailableBlink {
+
   0%,
   100% {
     opacity: 1;
@@ -1970,6 +1974,7 @@ button:hover,
 }
 
 @keyframes pgFeaturedOrbFloat {
+
   0%,
   100% {
     transform: translate3d(0, 0, 0) scale(1);
@@ -1983,6 +1988,7 @@ button:hover,
 }
 
 @keyframes pgFeaturedTopbarShift {
+
   0%,
   100% {
     background-position: 0% 50%;
@@ -1994,6 +2000,7 @@ button:hover,
 }
 
 @keyframes pgFeaturedCtaPulse {
+
   0%,
   100% {
     box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
@@ -2005,6 +2012,7 @@ button:hover,
 }
 
 @keyframes pgOpCtaPulse {
+
   0%,
   100% {
     box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
@@ -2016,6 +2024,7 @@ button:hover,
 }
 
 @keyframes pgFeaturedBtnShine {
+
   0%,
   68% {
     transform: translateX(-140%);
@@ -2064,8 +2073,8 @@ button:hover,
   .pg-hero-media-wrap::before,
   .pg-hero-highlight::after,
   .pg-about-title-word,
-   .pg-about-copy-line,
-   .pg-about-caption-kicker,
+  .pg-about-copy-line,
+  .pg-about-caption-kicker,
   .pg-about-caption-line,
   .pg-page-hero-title,
   .pg-page-hero-copy,

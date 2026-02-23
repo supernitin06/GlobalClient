@@ -8,6 +8,7 @@ import HomePartnerCtaSection from "@/components/home/HomePartnerCtaSection";
 import HomeStatsSection from "@/components/home/HomeStatsSection";
 import HomeComplianceSection from "@/components/home/HomeComplianceSection";
 import HomeFaqSection from "@/components/home/HomeFaqSection";
+import HomeBlogSection from "@/components/home/HomeBlogSection";
 import ProjectsFeaturedTopSection from "@/components/projects/ProjectsFeaturedTopSection";
 import ProjectsOpportunitiesSection from "@/components/projects/ProjectsOpportunitiesSection";
 import ProjectsUpcomingSection from "@/components/projects/ProjectsUpcomingSection";
@@ -33,28 +34,22 @@ const Home = () => {
       <div className="pointer-events-none absolute -right-28 top-[42rem] h-80 w-80 rounded-full bg-[rgba(255,193,7,0.12)] blur-3xl" />
       <HomeHeroSection supportChannels={supportChannels} trustHighlights={trustHighlights} />
       <HomeStatsSection stats={impactStats} />
-      <HomeAboutServicesSection services={services} />
-      <HomeWhyChooseSection whyChooseUs={whyChooseUs} />
+      {/* <HomeAboutServicesSection services={services} /> */}
+      {/* <HomeWhyChooseSection whyChooseUs={whyChooseUs} /> */}
       <div className="pg-container">
-        <ProjectsFeaturedTopSection
-          opportunities={liveProjectOpportunities}
-          featuredLimit={liveProjectOpportunities.length}
-        />
-      </div>
-      <div className="pg-container">
+        <ProjectsFeaturedTopSection opportunities={liveProjectOpportunities} featuredLimit={liveProjectOpportunities.length} />
         <ProjectsOpportunitiesSection opportunities={liveProjectOpportunities} />
-      </div>
-      <div className="pg-container">
         <ProjectsUpcomingSection projects={upcomingProjects} />
       </div>
-      <HomeIndustriesProcessSection industries={industries} processSteps={processSteps} />
+      {/* <HomeIndustriesProcessSection industries={industries} processSteps={processSteps} /> */}
       {/* <HomeCampaignsSection campaigns={campaigns} /> */}
       <HomeBlogSection blogs={blogs} />
       {/* <HomeComplianceSection compliancePoints={compliancePoints} /> */}
       <HomeFaqSection faqItems={faqItems} />
-      <div className="mb-4">
+      <div className="">
       <HomePartnerCtaSection />
       </div>
+
     </div>
   );
 };

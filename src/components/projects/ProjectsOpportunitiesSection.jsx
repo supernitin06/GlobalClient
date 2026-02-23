@@ -39,7 +39,7 @@ const ProjectsOpportunitiesSection = ({ opportunities = [] }) => {
 
   return (
     <>
-      <section id="all-projects-board" className="pg-op-board mt-6 overflow-hidden rounded-[1.9rem] border border-slate-200 bg-[linear-gradient(145deg,#ffffff_0%,#f5f9ff_52%,#fef8ea_100%)] p-4 shadow-[0_18px_40px_rgba(15,23,42,0.11)] sm:p-6">
+      <section id="all-projects-board" className="pg-op-board mt-10 md:mt-16 lg:mt-24 overflow-hidden rounded-[1.9rem] border border-slate-200 bg-[linear-gradient(145deg,#ffffff_0%,#f5f9ff_52%,#fef8ea_100%)] p-4 shadow-[0_18px_40px_rgba(15,23,42,0.11)] sm:p-6">
         <div className="grid gap-4">
           {opportunities.map((project, index) => (
             <ScrollReveal key={project.id} variant="up" delay={Math.min(index * 70, 260)}>
