@@ -4,8 +4,13 @@ import { useEffect } from "react";
 import { ThemeProvider } from "next-themes";
 import ReduxProvider from "@/redux/ReduxProvider";
 import { AppWrapper } from "@/context/AppContext";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 /**
  * MainProvider consolidates all global state and theme providers.
@@ -13,12 +18,6 @@ import "aos/dist/aos.css";
  */
 export default function MainProvider({ children }) {
     useEffect(() => {
-        AOS.init({
-            duration: 800,
-            once: true,
-            easing: "ease-out-cubic",
-        });
-
         // Global Image Appearance Animation (Zoom-in)
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -46,6 +45,11 @@ export default function MainProvider({ children }) {
         });
 
         mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+        // Default GSAP settings
+        gsap.config({
+            nullTargetWarn: false,
+        });
 
         return () => {
             observer.disconnect();

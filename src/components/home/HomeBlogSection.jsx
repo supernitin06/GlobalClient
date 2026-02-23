@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -10,17 +10,46 @@ import "swiper/css/pagination";
 import { FaArrowRight, FaCalendarAlt, FaUser, FaGlobe } from "react-icons/fa";
 import Button from "@/components/ui/Button";
 import logo from "../../assets/image/logo/yello.png";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const HomeBlogSection = ({ blogs }) => {
+    const sectionRef = useRef(null);
+
+    useGSAP(() => {
+        gsap.from(".pg-blog-header", {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".pg-blog-header",
+                start: "top 85%",
+            }
+        });
+
+        gsap.from(".swiper", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".swiper",
+                start: "top 85%",
+            }
+        });
+    }, { scope: sectionRef });
+
     return (
-        <section className="relative overflow-hidden mt-6 md:mt-8 lg:mt-10 py-8 md:py-12 lg:py-16 bg-slate-50/50">
+        <section ref={sectionRef} className="relative overflow-hidden mt-6 md:mt-8 lg:mt-10 py-8 md:py-12 lg:py-16 bg-slate-50/50">
             {/* Background Decorative Overlay */}
             <div className="absolute inset-0 pointer-events-none opacity-[0.03] flex items-center justify-center overflow-hidden">
                 <FaGlobe className="text-[600px] text-slate-900 rotate-12" />
             </div>
 
             <div className="pg-container relative z-10">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div className="pg-blog-header flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
                     <div className="max-w-2xl">
                         <h2 className="text-[var(--color-primary)] font-bold uppercase tracking-widest text-sm mb-3">
                             Resource Center

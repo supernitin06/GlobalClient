@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Button from "@/components/ui/Button";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 import heroImage1 from "../../assets/image/Hero1.jpg";
 import heroImage2 from "../../assets/image/Hero2.jpg";
@@ -62,6 +64,55 @@ const HomeHeroSection = ({
   const [activeSlide, setActiveSlide] = useState(0);
   const [isHeroPop, setIsHeroPop] = useState(false);
   const heroPopTimerRef = useRef(null);
+  const heroRef = useRef(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.from(".pg-hero-kicker", {
+      y: 20,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power3.out"
+    })
+      .from(".pg-hero-word", {
+        y: 40,
+        opacity: 0,
+        rotateX: -45,
+        stagger: 0.05,
+        duration: 0.8,
+        ease: "power4.out"
+      }, "-=0.4")
+      .from(".pg-hero-subline", {
+        y: 20,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.6,
+        ease: "power3.out"
+      }, "-=0.5")
+      .from(".pg-hero-chip", {
+        scale: 0.8,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: "back.out(1.7)"
+      }, "-=0.4")
+      .from(".pg-hero-channel", {
+        x: -20,
+        opacity: 0,
+        stagger: 0.03,
+        duration: 0.4,
+        ease: "power2.out"
+      }, "-=0.4")
+      .from(".pg-hero-cta-btn", {
+        y: 30,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 0.7,
+        ease: "power3.out"
+      }, "-=0.3");
+
+  }, { scope: heroRef });
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -86,6 +137,7 @@ const HomeHeroSection = ({
 
   return (
     <section
+      ref={heroRef}
       className={`pg-hero-premium relative -mt-36 overflow-hidden border-b border-slate-200 bg-white pt-[12.25rem] pb-6 md:pt-[12.5rem] md:pb-7 lg:pt-[12.8rem] lg:pb-8 ${isHeroPop ? "is-3d-pop" : ""}`}
       onClick={onHeroPop}
     >
@@ -116,7 +168,7 @@ const HomeHeroSection = ({
 
       <div className="pg-hero-content-wrap relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-5 lg:grid-cols-1">
-          <ScrollReveal variant="left">
+          <div>
             <div className="max-w-4xl">
               <p className="pg-hero-kicker inline-flex items-center rounded-full border border-white/35 bg-white/14 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.1em] text-white">
                 Trusted Outsourcing Partner
@@ -166,12 +218,12 @@ const HomeHeroSection = ({
               </div>
 
               <div className="mt-6 flex flex-wrap gap-3">
-                <Link href="/requestproposal">
+                <Link href="/requestproposal" className="pg-hero-cta-btn">
                   <Button variant="primary" size="lg" className="rounded-xl border border-[#0f172a] shadow-[0_14px_26px_rgba(15,23,42,0.32)]">
                     Request a Proposal
                   </Button>
                 </Link>
-                <Link href="/contact">
+                <Link href="/contact" className="pg-hero-cta-btn">
                   <Button
                     variant="secondary"
                     size="lg"
@@ -194,7 +246,7 @@ const HomeHeroSection = ({
                 ))}
               </div>
             </div>
-          </ScrollReveal>
+          </div>
         </div>
       </div>
     </section>

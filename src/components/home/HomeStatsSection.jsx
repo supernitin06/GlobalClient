@@ -1,7 +1,9 @@
 'use client';
 
-import React from "react";
+import React, { useRef } from "react";
 import ScrollReveal from "../ui/ScrollReveal";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const ICONS = [
   // Shield
@@ -36,9 +38,52 @@ const STAT_BORDER = [
 ];
 
 const HomeStatsSection = ({ stats = [] }) => {
+  const containerRef = useRef(null);
+
+  useGSAP(() => {
+    const stats_els = gsap.utils.toArray(".pg-stat-value");
+
+    stats_els.forEach((el) => {
+      const targetValue = el.getAttribute("data-value");
+      const isPercentage = targetValue.includes("%");
+      const isPlus = targetValue.includes("+");
+      const numericPart = parseFloat(targetValue.replace(/[^0-9.]/g, ""));
+
+      if (!isNaN(numericPart)) {
+        gsap.from(el, {
+          textContent: 0,
+          duration: 2,
+          ease: "power2.out",
+          snap: { textContent: 1 },
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",
+            toggleActions: "play none none none",
+          },
+          onUpdate: function () {
+            let val = Math.floor(this.targets()[0].textContent);
+            el.textContent = val + (isPercentage ? "%" : "") + (isPlus ? "+" : "");
+          }
+        });
+      }
+    });
+
+    gsap.from(".pg-stat-card", {
+      y: 30,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".grid",
+        start: "top 85%",
+      }
+    });
+  }, { scope: containerRef });
+
   return (
-    <section className="pg-container mt-6 md:mt-8 lg:mt-10">
-      <ScrollReveal variant="up">
+    <section ref={containerRef} className="pg-container mt-6 md:mt-8 lg:mt-10">
+      <div>
         <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_40px_rgba(15,23,42,0.08)]">
           {/* Header */}
           <div className="relative overflow-hidden border-b border-slate-200 bg-[linear-gradient(120deg,rgba(15,23,42,0.04),rgba(255,193,7,0.09))] px-7 py-6">
@@ -47,18 +92,22 @@ const HomeStatsSection = ({ stats = [] }) => {
             <h2 className="mt-1.5 text-3xl font-extrabold text-slate-900">Built for Scale, Speed & SLA Performance</h2>
           </div>
 
-          {/* Stats grid */}
           <div className="grid gap-4 p-6 sm:grid-cols-2 xl:grid-cols-4">
             {stats.map((item, i) => (
               <div
                 key={item.label}
-                className={`group relative overflow-hidden rounded-2xl border bg-gradient-to-br p-5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${STAT_BG[i % 4]} ${STAT_BORDER[i % 4]} pg-card-glow`}
+                className={`pg-stat-card group relative overflow-hidden rounded-2xl border bg-gradient-to-br p-5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${STAT_BG[i % 4]} ${STAT_BORDER[i % 4]} pg-card-glow`}
               >
                 {/* Icon */}
                 <div className={`mb-3 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-current/10 bg-white/70 ${STAT_ACCENT[i % 4]} shadow-sm`}>
                   {ICONS[i % 4]}
                 </div>
-                <p className={`text-4xl font-extrabold ${STAT_ACCENT[i % 4]} pg-pulse-glow`}>{item.value}</p>
+                <p
+                  className={`pg-stat-value text-4xl font-extrabold ${STAT_ACCENT[i % 4]} pg-pulse-glow`}
+                  data-value={item.value}
+                >
+                  {item.value}
+                </p>
                 <p className="mt-2 text-sm font-semibold text-slate-700">{item.label}</p>
                 <p className="mt-1 text-xs leading-5 text-slate-500">{item.subText}</p>
                 {/* Corner accent */}
@@ -67,7 +116,7 @@ const HomeStatsSection = ({ stats = [] }) => {
             ))}
           </div>
         </article>
-      </ScrollReveal>
+      </div>
     </section>
   );
 };
