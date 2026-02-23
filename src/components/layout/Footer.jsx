@@ -1,144 +1,197 @@
-'use client';
+"use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import logo from "../../assets/image/logo/yello.png";
-import Button from "@/components/ui/Button";
+import { useTheme } from "next-themes";
+import ReactCountryFlag from "react-country-flag";
 
-const services = [
-  "Inbound Customer Support",
-  "Outbound Sales & Lead Generation",
-  "Live Chat Support",
-  "Email Support & Ticket Handling",
-  "Technical Support (L1/L2)",
-  "Back Office Operations",
-];
-
-const quickLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Partner With Us", href: "/partnerwithus" },
-  { label: "Request Proposal", href: "/requestproposal" },
-  { label: "Contact Us", href: "/contact" },
-];
-
-const legalLinks = [
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms & Conditions", href: "/terms-conditions" },
-  { label: "Cookie Policy", href: "/cookie-policy" },
-  { label: "Disclaimer", href: "/disclaimer" },
-  { label: "Compliance & Policies", href: "/compliance-policies" },
-];
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaWhatsapp,
+  FaLinkedinIn,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaProjectDiagram,
+  FaInfoCircle,
+} from "react-icons/fa";
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const [mounted, setMounted] = useState(false);
+  const { theme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
+  const isDark = theme === "dark";
 
   return (
-    <footer className="relative mt-14 overflow-hidden border-t border-slate-200 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(247,250,255,0.98))]">
-      <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-[rgba(13,110,253,0.12)] blur-3xl" />
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-1/3 bg-[radial-gradient(circle_at_top_right,rgba(255,193,7,0.16),transparent_58%)]" />
-      <div className="pointer-events-none absolute -right-28 bottom-8 h-72 w-72 rounded-full bg-[rgba(13,110,253,0.08)] blur-3xl" />
+    <footer
+      className={`transition-all duration-300 ${
+        isDark
+          ? "bg-[#0b1220] text-white"
+          : "bg-white text-gray-800"
+      }`}
+    >
+      {/* MAIN GRID */}
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10">
-        <div className="rounded-[1.6rem] border border-[rgba(13,110,253,0.24)] bg-[linear-gradient(120deg,rgba(13,110,253,0.1),rgba(255,193,7,0.13))] p-6 shadow-[0_18px_38px_rgba(15,23,42,0.1)] md:p-7">
-          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--color-primary-dark)]">Final Support CTA</p>
-              <h3 className="mt-2 text-2xl font-bold leading-tight sm:text-3xl">Need Fast Outsourcing Deployment?</h3>
-              <p className="mt-2 max-w-xl text-sm text-slate-700 sm:text-base">Share your requirement and our team will connect within 24-48 business hours.</p>
+        {/* LEFT */}
+        <div className="space-y-4">
+          <Image src={logo} alt="logo" className="h-10 w-auto" />
+
+          {/* SOCIAL */}
+          <div className="flex gap-3">
+            {[FaInstagram, FaFacebookF, FaWhatsapp, FaLinkedinIn].map(
+              (Icon, i) => (
+                <div
+                  key={i}
+                  className={`w-9 h-9 flex items-center justify-center rounded-full cursor-pointer transition duration-300 hover:scale-110
+                  ${
+                    isDark
+                      ? "bg-white/10 hover:bg-gradient-to-r from-blue-500 to-purple-500"
+                      : "bg-gray-200 hover:bg-gradient-to-r from-blue-500 to-purple-500 text-gray-700 hover:text-white"
+                  }`}
+                >
+                  <Icon size={14} />
+                </div>
+              )
+            )}
+          </div>
+
+          {/* ADDRESSES */}
+          <div className="space-y-3 text-xs">
+            <h3 className="font-semibold text-sm flex items-center gap-2">
+              <FaMapMarkerAlt /> Our Offices
+            </h3>
+
+            <p className={`flex gap-2 items-start ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+              <ReactCountryFlag countryCode="IN" svg style={{ width: "1.2em" }} />
+              Bhutani Alphathum, Tower C, Unit 1034, Noida, India
+            </p>
+
+            <p className={`flex gap-2 items-start ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+              <ReactCountryFlag countryCode="US" svg style={{ width: "1.2em" }} />
+              Palo Alto, CA, United States
+            </p>
+
+            <p className={`flex gap-2 items-start ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+              <ReactCountryFlag countryCode="GB" svg style={{ width: "1.2em" }} />
+              Manchester, United Kingdom
+            </p>
+          </div>
+        </div>
+
+        {/* PROJECT */}
+        <div>
+          <h3 className="font-semibold text-sm mb-4 flex items-center gap-2">
+            <FaProjectDiagram /> Project Categories
+          </h3>
+
+          <ul className={`text-xs space-y-2 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+            <li>Chat Support Process</li>
+            <li>Inbound Call Center Project (Healthcare)</li>
+            <li>Call Center Services</li>
+            <li>Inbound Call Center Airlines (International)</li>
+          </ul>
+        </div>
+
+        {/* ABOUT */}
+        <div>
+          <h3 className="font-semibold text-sm mb-4 flex items-center gap-2">
+            <FaInfoCircle /> About
+          </h3>
+
+          <ul className={`text-xs space-y-2 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+            <li><Link href="#">About Global Projects</Link></li>
+            <li><Link href="#">Terms & Conditions</Link></li>
+            <li><Link href="#">Explore Work</Link></li>
+            <li><Link href="#">Backend Projects</Link></li>
+            <li><Link href="#">Contact Us</Link></li>
+          </ul>
+        </div>
+
+        {/* SUPPORT */}
+        <div>
+          <h3 className="font-semibold text-sm mb-4 flex items-center gap-2">
+            <FaEnvelope /> Support & Contact
+          </h3>
+
+          <div className="text-xs space-y-2">
+            <div className={`grid grid-cols-2 font-semibold border-b pb-1 ${
+              isDark ? "border-white/10" : "border-gray-300"
+            }`}>
+              <span>Department</span>
+              <span>Contact</span>
             </div>
-            <div className="flex flex-wrap items-center gap-2.5">
-              <span className="rounded-full border border-slate-200 bg-white/90 px-3 py-1.5 text-xs font-semibold text-slate-700">24-48 Business Hours</span>
-              <span className="rounded-full border border-slate-200 bg-white/90 px-3 py-1.5 text-xs font-semibold text-slate-700">SLA-Focused Consultation</span>
-              <Link href="/requestproposal" className="inline-flex">
-                <Button variant="primary" size="md">Request Proposal</Button>
-              </Link>
+
+            <div className={`grid grid-cols-2 gap-2 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+              <span>IVR</span>
+              <span className="flex items-center gap-1">9211532400</span>
+
+              <span>Phone Support</span>
+              <span className="flex items-center gap-1">+91-9211532100</span>
+
+              <span>General Info</span>
+              <span className="flex items-center gap-1"> info@projectsglobal.in</span>
+
+              <span>Project</span>
+              <span className="flex items-center gap-1"> contact@projectsglobal.in</span>
+
+              <span>Billing</span>
+              <span className="flex items-center gap-1"> accounts@projectsglobal.in</span>
+
+              <span>Technical</span>
+              <span className="flex items-center gap-1"> techsupport@projectsglobal.in</span>
+
+              <span>Issues</span>
+              <span className="flex items-center gap-1"> noc@projectsglobal.in</span>
             </div>
           </div>
         </div>
+
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-5 py-10 lg:grid-cols-12">
-        <article className="pg-footer-card rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-[0_14px_30px_rgba(15,23,42,0.08)] lg:col-span-4">
-          <div className="flex items-start gap-4">
-            <img src={logo.src} alt="Projects Global Logo" className="h-12 w-auto" />
-            <div>
-              <h3 className="text-xl font-bold">Projects Global</h3>
-              <p className="text-xs font-medium uppercase tracking-wide text-slate-600">Global Outsourcing Excellence</p>
-            </div>
-          </div>
-          <p className="mt-4 text-sm leading-6 text-slate-700">India Headquarters | Global Delivery Network</p>
-          <p className="mt-1.5 text-sm text-slate-700">Phone: +91 [Insert Number]</p>
-          <p className="text-sm text-slate-700">Email: info@projectsglobal.in</p>
-          <p className="text-sm text-slate-700">Business Hours: Monday - Saturday | 10:00 AM - 7:00 PM (IST)</p>
+      {/* LICENSE */}
+     <div
+  className={`border-t text-center py-2 text-xs ${
+    isDark
+      ? "border-white/10 text-gray-300"
+      : "border-gray-300 text-gray-600"
+  }`}
+>
+  <p className="font-medium mb-2">
+    Projects Outsource Licence : UTP/8357096IN
+  </p>
 
-          <div className="mt-4 flex gap-2.5">
-            {["in", "f", "ig"].map((item) => (
-              <span key={item} className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-xs font-bold text-slate-600">
-                {item.toUpperCase()}
-              </span>
-            ))}
-          </div>
-        </article>
+  <div
+    className={`inline-flex flex-wrap items-center justify-center gap-3 px-4 py-2 rounded-lg border ${
+      isDark
+        ? "border-white/20 bg-white/5 text-white"
+        : "border-gray-300 bg-white text-gray-700"
+    }`}
+  >
+    <span className="font-medium">
+      CIN: U78100DL2024PTC436257
+    </span>
 
-        <article className="pg-footer-card rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-[0_14px_30px_rgba(15,23,42,0.08)] lg:col-span-3">
-          <h4 className="text-xl font-bold">Services</h4>
-          <ul className="pg-footer-list mt-4 space-y-2 text-sm text-slate-700">
-            {services.map((item) => (
-              <li key={item} className="flex items-start gap-2.5">
-                <span className="mt-1.5 h-2 w-2 rounded-full bg-[var(--color-primary)]" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </article>
+    <span className="w-px h-4 bg-gray-400/40"></span>
 
-        <article className="pg-footer-card rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-[0_14px_30px_rgba(15,23,42,0.08)] lg:col-span-2">
-          <h4 className="text-xl font-bold">Quick Links</h4>
-          <ul className="pg-footer-list mt-4 space-y-2 text-sm text-slate-700">
-            {quickLinks.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="inline-flex items-center gap-2 transition hover:translate-x-0.5 hover:text-[var(--color-primary)]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)]" />
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </article>
+    <span className="font-medium">
+      CIN: U97000DL2025PTC445774
+    </span>
+  </div>
+</div>
 
-        <article className="pg-footer-card rounded-3xl border border-[rgba(13,110,253,0.24)] bg-[linear-gradient(160deg,rgba(255,255,255,0.95),rgba(231,241,255,0.68))] p-6 shadow-[0_14px_30px_rgba(15,23,42,0.08)] lg:col-span-3">
-          <h4 className="text-xl font-bold">Newsletter</h4>
-          <p className="mt-2 text-sm text-slate-700">Get outsourcing updates and campaign opportunities.</p>
-          <form className="mt-3 space-y-2.5">
-            <input
-              type="email"
-              placeholder="Your business email"
-              className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-[var(--color-primary)]"
-            />
-            <Button type="button" variant="primary" size="sm" className="w-full">Subscribe</Button>
-          </form>
-          <p className="mt-3 text-xs text-slate-500">Business email only. No spam communication.</p>
-        </article>
-      </div>
-
-      <div className="relative border-t border-slate-200/90 bg-white/80">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-            <p className="text-sm font-medium text-slate-700">© {year} Projects Global. All Rights Reserved.</p>
-            <div className="flex flex-wrap gap-2 text-xs text-slate-700">
-              {legalLinks.map((item) => (
-                <Link key={item.href} href={item.href} className="rounded-full border border-slate-300 bg-white px-3 py-1.5 transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]">
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <p className="mt-3 text-xs leading-6 text-slate-600">
-            Projects Global provides outsourcing and support services subject to contractual agreements. Information on this
-            website is for general purposes only and does not constitute a binding offer or guarantee of performance.
-          </p>
-        </div>
+      {/* COPYRIGHT */}
+      <div className={`border-t text-center py-3 text-[11px] ${
+        isDark ? "border-white/10 text-gray-400" : "border-gray-300 text-gray-500"
+      }`}>
+        © {year} Projects Global. All Rights Reserved.
       </div>
     </footer>
   );
