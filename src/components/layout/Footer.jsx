@@ -1,136 +1,198 @@
-'use client';
+"use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import logo from "../../assets/image/logo/yello.png";
+import { useTheme } from "next-themes";
+import ReactCountryFlag from "react-country-flag";
+
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaWhatsapp,
+  FaLinkedinIn,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaProjectDiagram,
+  FaInfoCircle,
+} from "react-icons/fa";
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const [mounted, setMounted] = useState(false);
+  const { theme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
+  const isDark = theme === "dark";
 
   return (
-    <footer className="mt-20 text-white bg-[#0a2540] dark:bg-gradient-to-br dark:from-[#0a2540] dark:via-[#0d1b2a] dark:to-[#020617]">
+    <footer
+      className={`transition-all duration-300 ${
+        isDark
+          ? "bg-[#0b1220] text-white"
+          : "bg-white text-gray-800"
+      }`}
+    >
+      {/* MAIN GRID */}
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-      {/* Main */}
-      <div className="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+        {/* LEFT */}
+        <div className="space-y-4">
+          <Image src={logo} alt="logo" className="h-10 w-auto" />
 
-        {/* Company */}
-        <div>
-          <div className="flex items-center gap-3">
-            <img src={logo.src} alt="logo" className="h-10" />
+          {/* SOCIAL */}
+          <div className="flex gap-3">
+            {[FaInstagram, FaFacebookF, FaWhatsapp, FaLinkedinIn].map(
+              (Icon, i) => (
+                <div
+                  key={i}
+                  className={`w-9 h-9 flex items-center justify-center rounded-full cursor-pointer transition duration-300 hover:scale-110
+                  ${
+                    isDark
+                      ? "bg-white/10 hover:bg-gradient-to-r from-blue-500 to-purple-500"
+                      : "bg-gray-200 hover:bg-gradient-to-r from-blue-500 to-purple-500 text-gray-700 hover:text-white"
+                  }`}
+                >
+                  <Icon size={14} />
+                </div>
+              )
+            )}
           </div>
 
-          <p className="mt-4 text-sm text-gray-300 leading-6">
-            Delivering global outsourcing solutions with excellence and trust.
-          </p>
+          {/* ADDRESSES */}
+          <div className="space-y-3 text-xs">
+            <h3 className="font-semibold text-sm flex items-center gap-2">
+              <FaMapMarkerAlt /> Our Offices
+            </h3>
 
-          <p className="mt-4 text-xs text-gray-400">
-            Projects Outsource Licence: UTP/8357096IN
-          </p>
+            <p className={`flex gap-2 items-start ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+              <ReactCountryFlag countryCode="IN" svg style={{ width: "1.2em" }} />
+              Bhutani Alphathum, Tower C, Unit 1034, Noida, India
+            </p>
 
-          <p className="text-xs text-gray-400 mt-1">
-            CIN: U78100DL2024PTC436257
-          </p>
-          <p className="text-xs text-gray-400">
-            CIN: U97000DL2025PTC445774
-          </p>
-        </div>
+            <p className={`flex gap-2 items-start ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+              <ReactCountryFlag countryCode="US" svg style={{ width: "1.2em" }} />
+              Palo Alto, CA, United States
+            </p>
 
-        {/* Project Categories */}
-        <div>
-          <h4 className="text-lg font-semibold mb-4 !text-yellow-400 dark:!text-blue-400 !bg-none !bg-clip-border tracking-wide">
-            Project Categories
-          </h4>
-
-          <ul className="space-y-2 text-gray-300 text-sm">
-            <li className="hover:text-yellow-400 transition">Chat Support Process</li>
-            <li className="hover:text-yellow-400 transition">Inbound Call Center Project</li>
-            <li className="hover:text-yellow-400 transition">(Healthcare Support Process)</li>
-            <li className="hover:text-yellow-400 transition">Call Center Services</li>
-            <li className="hover:text-yellow-400 transition">Inbound Airlines Projects</li>
-            <li className="hover:text-yellow-400 transition">Backend Projects</li>
-          </ul>
-        </div>
-
-        {/* Links + Emails */}
-        <div>
-          <h4 className="text-lg font-semibold mb-4 !text-yellow-400 dark:!text-blue-400 !bg-none !bg-clip-border tracking-wide">
-            Quick Links
-          </h4>
-
-          <ul className="space-y-2 text-gray-300 text-sm">
-            <li>
-              <Link href="/about" className="hover:text-yellow-400 transition">
-                About Global Projects
-              </Link>
-            </li>
-            <li>
-              <Link href="/terms-conditions" className="hover:text-yellow-400 transition">
-                Terms & Conditions
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-yellow-400 transition">
-                Contact Us
-              </Link>
-            </li>
-          </ul>
-
-          {/* Emails */}
-          <h4 className="text-lg font-semibold mt-6 mb-3 !text-yellow-400 dark:!text-blue-400 !bg-none !bg-clip-border tracking-wide">
-            Support Emails
-          </h4>
-
-          <ul className="space-y-1 text-gray-300 text-sm">
-            <li>info@projectsglobal.in</li>
-            <li>contact@projectsglobal.in</li>
-            <li>accounts@projectsglobal.in</li>
-            <li>techsupport@projectsglobal.in</li>
-            <li>noc@projectsglobal.in</li>
-            <li>support@projectsglobal.in</li>
-          </ul>
-        </div>
-
-        {/* Contact + Address */}
-        <div>
-          <h4 className="text-lg font-semibold mb-4 !text-yellow-400 dark:!text-blue-400 !bg-none !bg-clip-border tracking-wide">
-            Contact
-          </h4>
-
-          <div className="text-gray-300 text-sm space-y-1">
-            <p>📞 IVR: 9211532400</p>
-            <p>📞 Phone: +91-9211532100</p>
-          </div>
-
-          <h4 className="text-lg font-semibold mt-6 mb-3 !text-yellow-400 dark:!text-blue-400 !bg-none !bg-clip-border tracking-wide">
-            Addresses
-          </h4>
-
-          <div className="text-gray-300 text-sm space-y-2">
-            <p>🇮🇳 Bhutani Alphathum, Tower C, Sector 90, Noida - 201305</p>
-            <p>🇺🇸 530/B Lytton Ave, Palo Alto, CA 94301</p>
-            <p>🇬🇧 25 Lever St, Manchester M1 1EA</p>
-          </div>
-        </div>
-
-      </div>
-
-      {/* Bottom */}
-      <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col lg:flex-row items-center justify-between gap-4">
-
-          <div className="flex items-center gap-3">
-            <img src={logo.src} alt="logo" className="h-8" />
-            <p className="text-gray-400 text-sm">
-              © {year} Global Projects | A Unit of BITMAX Group
+            <p className={`flex gap-2 items-start ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+              <ReactCountryFlag countryCode="GB" svg style={{ width: "1.2em" }} />
+              Manchester, United Kingdom
             </p>
           </div>
-
-          <p className="text-gray-400 text-sm text-center lg:text-right">
-            All Rights Reserved.
-          </p>
         </div>
+
+        {/* PROJECT */}
+        <div>
+          <h3 className="font-semibold text-sm mb-4 flex items-center gap-2">
+            <FaProjectDiagram /> Project Categories
+          </h3>
+
+          <ul className={`text-xs space-y-2 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+            <li>Chat Support Process</li>
+            <li>Inbound Call Center Project (Healthcare)</li>
+            <li>Call Center Services</li>
+            <li>Inbound Call Center Airlines (International)</li>
+          </ul>
+        </div>
+
+        {/* ABOUT */}
+        <div>
+          <h3 className="font-semibold text-sm mb-4 flex items-center gap-2">
+            <FaInfoCircle /> About
+          </h3>
+
+          <ul className={`text-xs space-y-2 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+            <li><Link href="#">About Global Projects</Link></li>
+            <li><Link href="#">Terms & Conditions</Link></li>
+            <li><Link href="#">Explore Work</Link></li>
+            <li><Link href="#">Backend Projects</Link></li>
+            <li><Link href="#">Contact Us</Link></li>
+          </ul>
+        </div>
+
+        {/* SUPPORT */}
+        <div>
+          <h3 className="font-semibold text-sm mb-4 flex items-center gap-2">
+            <FaEnvelope /> Support & Contact
+          </h3>
+
+          <div className="text-xs space-y-2">
+            <div className={`grid grid-cols-2 font-semibold border-b pb-1 ${
+              isDark ? "border-white/10" : "border-gray-300"
+            }`}>
+              <span>Department</span>
+              <span>Contact</span>
+            </div>
+
+            <div className={`grid grid-cols-2 gap-2 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+              <span>IVR</span>
+              <span className="flex items-center gap-1">9211532400</span>
+
+              <span>Phone Support</span>
+              <span className="flex items-center gap-1">+91-9211532100</span>
+
+              <span>General Info</span>
+              <span className="flex items-center gap-1"> info@projectsglobal.in</span>
+
+              <span>Project</span>
+              <span className="flex items-center gap-1"> contact@projectsglobal.in</span>
+
+              <span>Billing</span>
+              <span className="flex items-center gap-1"> accounts@projectsglobal.in</span>
+
+              <span>Technical</span>
+              <span className="flex items-center gap-1"> techsupport@projectsglobal.in</span>
+
+              <span>Issues</span>
+              <span className="flex items-center gap-1"> noc@projectsglobal.in</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
+      {/* LICENSE */}
+     <div
+  className={`border-t text-center py-2 text-xs ${
+    isDark
+      ? "border-white/10 text-gray-300"
+      : "border-gray-300 text-gray-600"
+  }`}
+>
+  <p className="font-medium mb-2">
+    Projects Outsource Licence : UTP/8357096IN
+  </p>
+
+  <div
+    className={`inline-flex flex-wrap items-center justify-center gap-3 px-4 py-2 rounded-lg border ${
+      isDark
+        ? "border-white/20 bg-white/5 text-white"
+        : "border-gray-300 bg-white text-gray-700"
+    }`}
+  >
+    <span className="font-medium">
+      CIN: U78100DL2024PTC436257
+    </span>
+
+    <span className="w-px h-4 bg-gray-400/40"></span>
+
+    <span className="font-medium">
+      CIN: U97000DL2025PTC445774
+    </span>
+  </div>
+</div>
+
+      {/* COPYRIGHT */}
+      <div className={`border-t text-center py-3 text-[11px] ${
+        isDark ? "border-white/10 text-gray-400" : "border-gray-300 text-gray-500"
+      }`}>
+        © {year} Projects Global. All Rights Reserved.
+      </div>
     </footer>
   );
 };
