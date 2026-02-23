@@ -78,20 +78,46 @@ html {
 body {
   margin: 0;
   color: var(--color-dark);
-  background:
-    radial-gradient(circle at 0% 0%, rgba(15, 23, 42, 0.14), transparent 34%),
-    radial-gradient(circle at 100% 0%, rgba(15, 23, 42, 0.1), transparent 30%),
-    var(--color-light-gray);
+  position: relative;
+  background-color: var(--color-light-gray);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(30, 61, 133, 0.06) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.04) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(255, 193, 7, 0.03) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(30, 61, 133, 0.04) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(59, 130, 246, 0.02) 0px, transparent 50%);
+  background-size: 200% 200%;
+  animation: pgMainBgMotion 22s ease-in-out infinite alternate;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -150%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 10000;
+  animation: pgGlobalNoise 0.2s steps(2) infinite;
+  will-change: transform;
 }
 
 :root[data-theme="dark"] body {
   color: var(--text-secondary);
-  background:
-    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.16), transparent 32%),
-    radial-gradient(circle at 100% 0%, rgba(59, 130, 246, 0.12), transparent 28%),
-    var(--dark-950);
+  background-color: var(--dark-950);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(30, 61, 133, 0.14) 0px, transparent 55%),
+    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(255, 193, 7, 0.06) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(30, 61, 133, 0.1) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(30, 61, 133, 0.08) 0px, transparent 60%);
+}
+
+:root[data-theme="dark"] body::before {
+  opacity: 0.05;
 }
 
 :root[data-theme="dark"] .bg-white {
@@ -499,6 +525,75 @@ button:hover,
   .pg-logo-track {
     animation: none !important;
     transform: none !important;
+  }
+
+  body::before {
+    animation: none !important;
+  }
+
+  body {
+    animation: none !important;
+    background-size: 100% 100% !important;
+  }
+}
+
+@keyframes pgMainBgMotion {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 50% 100%;
+  }
+}
+
+@keyframes pgGlobalNoise {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-5%, -5%);
+  }
+
+  20% {
+    transform: translate(-10%, 5%);
+  }
+
+  30% {
+    transform: translate(5%, -10%);
+  }
+
+  40% {
+    transform: translate(-5%, 15%);
+  }
+
+  50% {
+    transform: translate(-10%, 5%);
+  }
+
+  60% {
+    transform: translate(15%, 0);
+  }
+
+  70% {
+    transform: translate(0, 10%);
+  }
+
+  80% {
+    transform: translate(-15%, 0);
+  }
+
+  90% {
+    transform: translate(10%, 5%);
+  }
+
+  100% {
+    transform: translate(5%, 0);
   }
 }
 
