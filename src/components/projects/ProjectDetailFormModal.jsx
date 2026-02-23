@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import Button from "../ui/Button";
+import logo from "../../assets/image/logo/yello.png";
 
 const initialState = {
   salutation: "Mr.",
@@ -72,7 +74,7 @@ const ProjectDetailFormModal = ({ open, onClose, project }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6 lg:p-8">
+    <div className="fixed inset-0 z-[120] flex items-center justify-center p-3 sm:p-6">
       {/* Backdrop */}
       <div className="pg-project-modal-mask absolute inset-0" onClick={onClose} aria-hidden="true" />
 
@@ -80,15 +82,18 @@ const ProjectDetailFormModal = ({ open, onClose, project }) => {
       <div
         ref={panelRef}
         tabIndex={-1}
-        className="pg-project-modal-enter relative z-10 flex max-h-full w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-slate-200 bg-[linear-gradient(160deg,#ffffff,rgba(246,250,255,0.96))] shadow-[0_32px_80px_rgba(2,6,23,0.45)] focus:outline-none"
+        className="pg-project-modal-enter relative z-10 flex max-h-[calc(100dvh-2rem)] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-slate-200 bg-[linear-gradient(160deg,#ffffff,rgba(246,250,255,0.96))] shadow-[0_32px_80px_rgba(2,6,23,0.45)] focus:outline-none"
       >
         {/* Header */}
-        <div className="flex shrink-0 items-center justify-between border-b border-slate-200 bg-[linear-gradient(120deg,rgba(30,61,133,0.08),rgba(250,204,21,0.14))] px-4 py-3 sm:px-6">
-          <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">Project Verification Form</p>
-            <h3 className="bg-gradient-to-r from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[#3b82f6] bg-clip-text text-base font-black text-transparent sm:text-lg">
-              {title}
-            </h3>
+        <div className="flex shrink-0 items-center justify-between gap-3 border-b border-slate-200 bg-[linear-gradient(120deg,rgba(30,61,133,0.08),rgba(250,204,21,0.14))] px-4 py-3 sm:px-6">
+          <div className="flex items-center gap-3">
+            <Image src={logo} alt="Projects Global Logo" priority className="h-9 w-auto sm:h-10" />
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">Project Verification Form</p>
+              <h3 className="bg-gradient-to-r from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[#3b82f6] bg-clip-text text-base font-black text-transparent sm:text-lg">
+                {title}
+              </h3>
+            </div>
           </div>
           <button
             type="button"
@@ -96,7 +101,9 @@ const ProjectDetailFormModal = ({ open, onClose, project }) => {
             className="group inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm transition-all hover:border-slate-300 hover:bg-slate-50 active:scale-90"
             aria-label="Close"
           >
-            <span className="text-lg leading-none text-slate-400 group-hover:text-slate-600 transition-colors">×</span>
+            <svg className="h-4 w-4 text-slate-400 transition-colors group-hover:text-slate-600" viewBox="0 0 20 20" fill="none">
+              <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+            </svg>
           </button>
         </div>
 
