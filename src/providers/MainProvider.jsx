@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from "react";
+import { ThemeProvider } from "next-themes";
 import ReduxProvider from "@/redux/ReduxProvider";
 import { AppWrapper } from "@/context/AppContext";
 import AOS from "aos";
@@ -20,10 +21,12 @@ export default function MainProvider({ children }) {
     }, []);
 
     return (
-        <ReduxProvider>
-            <AppWrapper>
-                {children}
-            </AppWrapper>
-        </ReduxProvider>
+        <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
+            <ReduxProvider>
+                <AppWrapper>
+                    {children}
+                </AppWrapper>
+            </ReduxProvider>
+        </ThemeProvider>
     );
 }

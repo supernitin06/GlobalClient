@@ -30,7 +30,9 @@ export default function RootLayout({ children }) {
           <main className="pt-32 min-h-screen pg-page-enter">
             {children}
           </main>
-          <Footer />
+          <div className="mt-8">
+            <Footer />
+          </div>
         </MainProvider>
       </body>
     </html>
