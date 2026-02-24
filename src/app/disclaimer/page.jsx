@@ -2,7 +2,7 @@
 
 import React from "react";
 import LegalLayout from "../../components/compliance/LegalLayout";
-import heroImage from "../../assets/image/data-information-report-statistics-strategy-concept.jpg";
+import heroImage from "../../assets/image/Hero1.jpg";
 
 const Disclaimer = () => (
     <LegalLayout
