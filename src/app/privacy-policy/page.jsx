@@ -2,7 +2,7 @@
 
 import React from "react";
 import LegalLayout from "../../components/compliance/LegalLayout";
-import heroImage from "../../assets/image/representation-user-experience-interface-design.jpg";
+import heroImage from "../../assets/image/Hero2.jpg";
 
 const PrivacyPolicy = () => (
     <LegalLayout
