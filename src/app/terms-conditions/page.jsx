@@ -2,7 +2,7 @@
 
 import React from "react";
 import LegalLayout from "../../components/compliance/LegalLayout";
-import heroImage from "../../assets/image/firmbee-com-gcsNOsPEXfs-unsplash.jpg";
+import heroImage from "../../assets/image/Hero3.jpg";
 
 const TermsConditions = () => (
     <LegalLayout
